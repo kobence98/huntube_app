@@ -16,7 +16,7 @@ abstract final class TextStyles {
 
   static const titleMedium = TextStyle(
     fontFamily: FontFamily.lalezar,
-    fontSize: 20,
+    fontSize: 26,
   );
 
   static const titleSmall = TextStyle(

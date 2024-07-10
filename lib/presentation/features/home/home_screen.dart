@@ -1,13 +1,14 @@
 import 'package:huntube_app/core/providers/files_provider.dart';
 import 'package:huntube_app/core/router/the_just_matthew_router.gr.dart';
 import 'package:huntube_app/presentation/extensions/context_extensions.dart';
-import 'package:huntube_app/presentation/features/one_part_list/one_part_list_screen.dart';
 import 'package:huntube_app/presentation/utils/ui_constants.dart';
 import 'package:huntube_app/presentation/widgets/activity_indicator.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:huntube_app/presentation/widgets/elevated_button.dart';
+import 'package:huntube_app/presentation/widgets/error_text.dart';
+import 'package:huntube_app/presentation/widgets/texts.dart';
 
 @RoutePage()
 class HomeScreen extends ConsumerWidget {
@@ -24,12 +25,10 @@ class HomeScreen extends ConsumerWidget {
                   elevation: 10,
                   backgroundColor: context.appColors.blackStrong,
                   title: new Center(
-                    child: Text(
-                      'R.I.P TheJustMatthew',
+                    child: H3Text(
+                      text: 'R.I.P TheJustMatthew',
                       textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: context.appColors.whiteStrong,
-                      ),
+                      color: context.appColors.whiteStrong,
                     ),
                   ),
                 ),
@@ -47,12 +46,9 @@ class HomeScreen extends ConsumerWidget {
                       width: double.infinity,
                       height: 60,
                       child: Center(
-                        child: Text(
-                          parts.elementAt(position).title,
-                          style: TextStyle(
-                            fontSize: 22.0,
-                            color: Colors.white,
-                          ),
+                        child: H3AutosizeText(
+                          text: parts.elementAt(position).title,
+                          color: context.appColors.whiteStrong,
                           textAlign: TextAlign.center,
                         ),
                       ),
@@ -70,7 +66,7 @@ class HomeScreen extends ConsumerWidget {
               ),
             );
           },
-          error: (error, stackTrace) => Text('Error: $error, $stackTrace'),
+          error: (error, stackTrace) => ErrorText(),
           loading: ActivityIndicatorApp.new,
         );
   }
