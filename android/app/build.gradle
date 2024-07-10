@@ -34,7 +34,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "hu.ubul_studio.huntube_app"
+        applicationId "alue"
         minSdkVersion 24
         targetSdkVersion 33
         versionCode flutterVersionCode.toInteger()
