@@ -34,7 +34,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "alue"
+        applicationId "com.justmatthew.TheJustMatthewApp"
         minSdkVersion 24
         targetSdkVersion 33
         versionCode flutterVersionCode.toInteger()
