@@ -7,7 +7,10 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(
     ProviderScope(
-      child: AppStartupWidget(),
+      // child: AppStartupWidget(),
+      child: const Scaffold(
+        body: Center(child: Text('IDÁIG AKKOR LEFUT LEGALÁBB'),),
+      ),
     ),
   );
 }
