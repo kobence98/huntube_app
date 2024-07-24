@@ -3,7 +3,7 @@ description: "Huntube portfolio project"
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-version: 2.0.0+1
+version: 1.0.0+1
 
 environment:
   sdk: '>=3.4.3 <4.0.0'
@@ -13,11 +13,7 @@ isar_version: &isar_version ^3.1.0+1
 dependencies:
   flutter:
     sdk: flutter
-  like_button: ^2.0.5
   audioplayers: ^6.0.0
-  animated_text_kit: ^4.2.2
-  flare_splash_screen: ^4.0.0
-  fluttertoast: ^8.2.6
   flutter_riverpod: ^2.5.1
   riverpod_annotation: ^2.3.5
   auto_route: ^8.1.3
