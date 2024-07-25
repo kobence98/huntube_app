@@ -8,7 +8,7 @@ import 'package:huntube_app/presentation/features/one_part_list/notifier/filter_
 import 'package:huntube_app/presentation/utils/ui_constants.dart';
 import 'package:huntube_app/presentation/widgets/activity_indicator.dart';
 import 'package:huntube_app/presentation/widgets/elevated_button.dart';
-import 'package:huntube_app/presentation/widgets/error_text.dart';
+import 'package:huntube_app/presentation/widgets/error_page.dart';
 import 'package:huntube_app/presentation/widgets/favourites_button.dart';
 import 'package:huntube_app/presentation/widgets/progress_bar.dart';
 import 'package:huntube_app/presentation/widgets/texts.dart';
@@ -97,7 +97,9 @@ class _OnePartListScreenState extends ConsumerState<OnePartListScreen> {
               ),
             );
           },
-          error: (_, __) => const ErrorText(),
+          error: (_, __) => ErrorPage(
+            onRetry: () => ref.invalidate(cachedLikesProvider),
+          ),
           loading: () => const ActivityIndicator(),
         );
   }

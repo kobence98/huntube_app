@@ -12,7 +12,7 @@ import 'package:huntube_app/presentation/features/one_part_list/notifier/progres
 import 'package:huntube_app/presentation/theme/app_colors.dart';
 import 'package:huntube_app/presentation/utils/ui_constants.dart';
 import 'package:huntube_app/presentation/widgets/activity_indicator.dart';
-import 'package:huntube_app/presentation/widgets/error_text.dart';
+import 'package:huntube_app/presentation/widgets/error_page.dart';
 import 'package:huntube_app/presentation/widgets/texts.dart';
 
 class ProgressBar extends ConsumerStatefulWidget {
@@ -228,7 +228,7 @@ class _ProgressBarState extends ConsumerState<ProgressBar>
               ),
             );
           },
-          error: (_, __) => const ErrorText(),
+          error: (_, __) => ErrorPage(onRetry: () => ref.invalidate(cachedLikesProvider)),
           loading: () => const ActivityIndicator(),
         );
   }
