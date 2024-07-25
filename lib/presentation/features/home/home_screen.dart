@@ -68,7 +68,7 @@ class HomeScreen extends ConsumerWidget {
           },
           // error: (error, stackTrace) =>
           //     ErrorPage(onRetry: () => ref.invalidate(readFilesProvider)),
-      error: (error, stackTrace) => Container(color: Colors.white, child: Text(error.toString() +  '\n\n' + stackTrace.toString()),),
+      error: (error, stackTrace) => SafeArea(child: Scaffold(body: Container(color: Colors.white, child: Text(error.toString() +  '\n\n' + stackTrace.toString(), style: TextStyle(fontSize: 12),),))),
           loading: ActivityIndicatorApp.new,
         );
   }
