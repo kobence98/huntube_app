@@ -1,3 +1,4 @@
+import 'package:huntube_app/presentation/extensions/context_extensions.dart';
 import 'package:huntube_app/presentation/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
@@ -31,9 +32,7 @@ class ActivityIndicator extends StatelessWidget {
       child: SizedBox(
         height: size,
         width: size,
-        child: CircularProgressIndicator.adaptive(
-          strokeWidth: 2,
-        ),
+        child: CircularProgressIndicator(strokeWidth: 2, color: context.appColors.teal,),
       ),
     );
   }
