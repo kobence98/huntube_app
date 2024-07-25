@@ -207,7 +207,8 @@ class _ProgressBarState extends ConsumerState<ProgressBar>
                         ),
                         child: liked
                             ? CustomPaint(
-                                painter: HeartPatternPainter(),
+                                painter: HeartPatternPainter(
+                                    widthOfBar: context.width - 32),
                                 child: Center(
                                   child: H3AutosizeText(
                                     text: widget.fileData.title,
@@ -228,7 +229,8 @@ class _ProgressBarState extends ConsumerState<ProgressBar>
               ),
             );
           },
-          error: (_, __) => ErrorPage(onRetry: () => ref.invalidate(cachedLikesProvider)),
+          error: (_, __) =>
+              ErrorPage(onRetry: () => ref.invalidate(cachedLikesProvider)),
           loading: () => const ActivityIndicator(),
         );
   }
@@ -249,6 +251,10 @@ class _ProgressBarState extends ConsumerState<ProgressBar>
 }
 
 class HeartPatternPainter extends CustomPainter {
+  final double widthOfBar;
+
+  HeartPatternPainter({required this.widthOfBar});
+
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()..color = AppColors.teal.withOpacity(0.2);
@@ -256,21 +262,21 @@ class HeartPatternPainter extends CustomPainter {
 
     // Define heart positions in a more irregular, but fixed pattern
     final hearts = [
-      Offset(25 - 10, 20),
-      Offset(50 - 10, 40),
-      Offset(75 - 10, 15),
-      Offset(100 - 10, 35),
-      Offset(125 - 10, 25),
-      Offset(150 - 10, 45),
-      Offset(175 - 10, 20),
-      Offset(200 - 10, 45),
-      Offset(225 - 10, 15),
-      Offset(250 - 10, 35),
-      Offset(275 - 10, 25),
-      Offset(300 - 10, 40),
-      Offset(325 - 10, 20),
-      Offset(350 - 10, 40),
-      Offset(375 - 10, 25),
+      Offset(widthOfBar - 15, 20),
+      Offset(widthOfBar - 40, 40),
+      Offset(widthOfBar - 65, 15),
+      Offset(widthOfBar - 90, 35),
+      Offset(widthOfBar - 115, 25),
+      Offset(widthOfBar - 140, 45),
+      Offset(widthOfBar - 165, 20),
+      Offset(widthOfBar - 190, 45),
+      Offset(widthOfBar - 215, 15),
+      Offset(widthOfBar - 240, 35),
+      Offset(widthOfBar - 265, 25),
+      Offset(widthOfBar - 290, 40),
+      Offset(widthOfBar - 315, 20),
+      Offset(widthOfBar - 340, 40),
+      Offset(widthOfBar - 365, 25),
     ];
 
     for (final offset in hearts) {
