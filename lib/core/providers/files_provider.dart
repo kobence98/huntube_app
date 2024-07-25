@@ -20,6 +20,7 @@ Future<List<PartFiles>> readFiles(ReadFilesRef ref) async {
   for (int i = 0; i < parts.length; i++) {
     List<FileData> files = [];
     parts.elementAt(i).replaceAll('\r\n', '\n');
+    parts.elementAt(i).replaceAll('\r', '\n');
     List<String> lines = parts.elementAt(i).split("\n");
     lines.removeAt(0);
     lines.removeLast();

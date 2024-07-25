@@ -66,7 +66,7 @@ class HomeScreen extends ConsumerWidget {
               ),
             );
           },
-          error: (error, stackTrace) => ErrorPage(onRetry: ref.invalidate(readFilesProvider)),
+          error: (error, stackTrace) => ErrorPage(onRetry: () => ref.invalidate(readFilesProvider)),
           loading: ActivityIndicatorApp.new,
         );
   }
