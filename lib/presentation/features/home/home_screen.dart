@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:huntube_app/presentation/widgets/elevated_button.dart';
 import 'package:huntube_app/presentation/widgets/error_page.dart';
+import 'package:huntube_app/presentation/widgets/tappable_app_bar.dart';
 import 'package:huntube_app/presentation/widgets/texts.dart';
 
 @RoutePage()
@@ -16,19 +17,39 @@ class HomeScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    int tapNumber = 0;
+    bool easterEggActivated = false;
     return ref.watch(readFilesProvider).when(
           data: (parts) {
             return SafeArea(
               child: Scaffold(
-                appBar: AppBar(
-                  shadowColor: context.appColors.teal,
-                  elevation: 10,
-                  backgroundColor: context.appColors.blackStrong,
-                  title: new Center(
-                    child: H3Text(
-                      text: 'R.I.P TheJustMatthew',
-                      textAlign: TextAlign.center,
-                      color: context.appColors.whiteStrong,
+                appBar: TappableAppBar(
+                  onTap: () {
+                    if(++tapNumber == 10){
+                      easterEggActivated = true;
+                      context.showSnackBar(text: 'Aktiváltad az easter egget! Jó szórakozást!:)', isSuccess: true);
+                    }
+                    else if(tapNumber > 13){
+                      context.showSnackBar(text: 'Már aktiváltad az easter egget, ne legyél mohó!:)');
+                    }
+                  },
+                  onLongPress: (){
+                    if(easterEggActivated){
+                      easterEggActivated = false;
+                      tapNumber = 0;
+                      context.showSnackBar(text: 'Visszakapcsoltad a normál módot!');
+                    }
+                  },
+                  appBar: AppBar(
+                    shadowColor: context.appColors.teal,
+                    elevation: 10,
+                    backgroundColor: context.appColors.blackStrong,
+                    title: new Center(
+                      child: H3Text(
+                        text: 'R.I.P TheJustMatthew',
+                        textAlign: TextAlign.center,
+                        color: context.appColors.whiteStrong,
+                      ),
                     ),
                   ),
                 ),
@@ -37,7 +58,7 @@ class HomeScreen extends ConsumerWidget {
                   padding: EdgeInsets.only(top: 10.0),
                   itemCount: parts.length,
                   itemBuilder: (context, position) {
-                    return TheJustMatthewElevatedButton(
+                    return ElevatedContainer(
                       margin: UIConstants.paddingAll8,
                       borderRadius: UIConstants.radiusAll8,
                       shadowOffset: Offset(2, 1),
@@ -57,6 +78,7 @@ class HomeScreen extends ConsumerWidget {
                         () => context.router.push(
                           OnePartListRoute(
                             partFiles: parts.elementAt(position),
+                            easterEggActivated: easterEggActivated,
                           ),
                         ),
                       ),

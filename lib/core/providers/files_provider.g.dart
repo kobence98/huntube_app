@@ -6,7 +6,7 @@ part of 'files_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$readFilesHash() => r'5d15c4a082e2806b1004fdccc364714b23eb5b66';
+String _$readFilesHash() => r'42cea535aac642710f038be715ef9be2ad13c7c5';
 
 /// See also [readFiles].
 @ProviderFor(readFiles)

@@ -33,7 +33,7 @@ class _ErrorPageState extends State<ErrorPage> {
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(height: 20),
-                  TheJustMatthewElevatedButton(
+                  ElevatedContainer(
                     onTap: widget.onRetry,
                     height: 40,
                     width: double.infinity,

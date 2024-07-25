@@ -9,12 +9,16 @@ class TheJustMatthewColors extends ThemeExtension<TheJustMatthewColors> {
     required this.teal,
     required this.indigo,
     required this.whiteStrong,
+    required this.redStrong,
+    required this.greenMedium,
   });
   final Color blackStrong;
   final Color navy;
   final Color teal;
   final Color indigo;
   final Color whiteStrong;
+  final Color redStrong;
+  final Color greenMedium;
 
   static const standard = TheJustMatthewColors(
     blackStrong: AppColors.blackStrong,
@@ -22,6 +26,8 @@ class TheJustMatthewColors extends ThemeExtension<TheJustMatthewColors> {
     teal: AppColors.teal,
     indigo: AppColors.indigo,
     whiteStrong: AppColors.whiteStrong,
+    redStrong: AppColors.redStrong,
+    greenMedium: AppColors.greenMedium,
   );
 
   @override
@@ -31,6 +37,8 @@ class TheJustMatthewColors extends ThemeExtension<TheJustMatthewColors> {
     Color? teal,
     Color? indigo,
     Color? whiteStrong,
+    Color? redStrong,
+    Color? greenMedium,
   }) {
     return TheJustMatthewColors(
       blackStrong: blackStrong ?? this.blackStrong,
@@ -38,6 +46,8 @@ class TheJustMatthewColors extends ThemeExtension<TheJustMatthewColors> {
       teal: teal ?? this.teal,
       indigo: indigo ?? this.indigo,
       whiteStrong: whiteStrong ?? this.whiteStrong,
+      redStrong: redStrong ?? this.redStrong,
+      greenMedium: greenMedium ?? this.greenMedium,
     );
   }
 
@@ -53,6 +63,8 @@ class TheJustMatthewColors extends ThemeExtension<TheJustMatthewColors> {
       teal: Color.lerp(teal, other.teal, t) ?? teal,
       indigo: Color.lerp(indigo, other.indigo, t) ?? indigo,
       whiteStrong: Color.lerp(whiteStrong, other.whiteStrong, t) ?? whiteStrong,
+      redStrong: Color.lerp(redStrong, other.redStrong, t) ?? redStrong,
+      greenMedium: Color.lerp(greenMedium, other.greenMedium, t) ?? greenMedium,
     );
   }
 }

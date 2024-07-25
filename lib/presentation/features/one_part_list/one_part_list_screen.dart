@@ -15,9 +15,10 @@ import 'package:huntube_app/presentation/widgets/texts.dart';
 
 @RoutePage()
 class OnePartListScreen extends ConsumerStatefulWidget {
-  const OnePartListScreen({super.key, required this.partFiles});
+  const OnePartListScreen({super.key, required this.partFiles, required this.easterEggActivated});
 
   final PartFiles partFiles;
+  final bool easterEggActivated;
 
   @override
   ConsumerState<OnePartListScreen> createState() => _OnePartListScreenState();
@@ -50,7 +51,7 @@ class _OnePartListScreenState extends ConsumerState<OnePartListScreen> {
                         color: context.appColors.whiteStrong,
                       ),
                     ),
-                    leading: TheJustMatthewElevatedButton(
+                    leading: ElevatedContainer(
                       onTap: () => Future.delayed(
                         Duration(milliseconds: 300),
                         context.router.maybePop,
@@ -89,6 +90,7 @@ class _OnePartListScreenState extends ConsumerState<OnePartListScreen> {
                       itemBuilder: (context, position) {
                         return ProgressBar(
                           fileData: files.elementAt(position),
+                          easterEggActivated: widget.easterEggActivated,
                         );
                       },
                     ),

@@ -17,10 +17,12 @@ import 'package:huntube_app/presentation/widgets/texts.dart';
 
 class ProgressBar extends ConsumerStatefulWidget {
   final FileData fileData;
+  final bool easterEggActivated;
 
   const ProgressBar({
     Key? key,
     required this.fileData,
+    required this.easterEggActivated,
   }) : super(key: key);
 
   @override
@@ -91,7 +93,7 @@ class _ProgressBarState extends ConsumerState<ProgressBar>
             final buttonPushedDown = pushedDownButtonId != null &&
                 pushedDownButtonId == widget.fileData.id;
 
-            if (activeBarId != null && activeBarId != widget.fileData.id) {
+            if (activeBarId != null && activeBarId != widget.fileData.id && !widget.easterEggActivated) {
               _controller.reset();
               _player.stop();
             }
@@ -162,7 +164,7 @@ class _ProgressBarState extends ConsumerState<ProgressBar>
                           .read(buttonPushNotifierProvider.notifier)
                           .buttonUp(widget.fileData.id),
                     );
-                    if (_controller.isAnimating) {
+                    if (_controller.isAnimating && !widget.easterEggActivated) {
                       _controller.reset();
                       _player.stop();
                     } else {

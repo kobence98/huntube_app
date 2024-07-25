@@ -15,8 +15,10 @@ Future<List<PartFiles>> readFiles(ReadFilesRef ref) async {
 
   String data = await rootBundle.loadString(Assets.textFiles.fileNames);
   int partIndex = 0;
-  List<String> parts = data.split('/start/');
+  //Nem minden eszközön ugyanaz a line separator, így le kell cserélni az egyéb line separatort \n-re
+  List<String> parts = data.replaceAll('\r\n', '\n').replaceAll('\r', '\n').split('/start/');
   parts.removeAt(0);
+
   for (int i = 0; i < parts.length; i++) {
     List<FileData> files = [];
     parts.elementAt(i).replaceAll('\r\n', '\n');

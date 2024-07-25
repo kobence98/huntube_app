@@ -33,6 +33,7 @@ abstract class $TheJustMatthewRouter extends _i3.RootStackRouter {
         child: _i2.OnePartListScreen(
           key: args.key,
           partFiles: args.partFiles,
+          easterEggActivated: args.easterEggActivated,
         ),
       );
     },
@@ -59,12 +60,14 @@ class OnePartListRoute extends _i3.PageRouteInfo<OnePartListRouteArgs> {
   OnePartListRoute({
     _i4.Key? key,
     required _i5.PartFiles partFiles,
+    required bool easterEggActivated,
     List<_i3.PageRouteInfo>? children,
   }) : super(
           OnePartListRoute.name,
           args: OnePartListRouteArgs(
             key: key,
             partFiles: partFiles,
+            easterEggActivated: easterEggActivated,
           ),
           initialChildren: children,
         );
@@ -79,14 +82,17 @@ class OnePartListRouteArgs {
   const OnePartListRouteArgs({
     this.key,
     required this.partFiles,
+    required this.easterEggActivated,
   });
 
   final _i4.Key? key;
 
   final _i5.PartFiles partFiles;
 
+  final bool easterEggActivated;
+
   @override
   String toString() {
-    return 'OnePartListRouteArgs{key: $key, partFiles: $partFiles}';
+    return 'OnePartListRouteArgs{key: $key, partFiles: $partFiles, easterEggActivated: $easterEggActivated}';
   }
 }

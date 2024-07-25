@@ -7,8 +7,8 @@ import 'package:huntube_app/presentation/theme/app_colors.dart';
 import 'package:huntube_app/presentation/utils/ui_constants.dart';
 import 'package:huntube_app/presentation/widgets/notifiers/elevated_button_notifier.dart';
 
-class TheJustMatthewElevatedButton extends ConsumerWidget {
-  TheJustMatthewElevatedButton({
+class ElevatedContainer extends ConsumerWidget {
+  ElevatedContainer({
     this.width,
     this.height,
     this.child,
