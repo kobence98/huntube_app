@@ -8,18 +8,7 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(
     ProviderScope(
-      // child: AppStartupWidget(),
-      child: MaterialApp(
-          home: Scaffold(
-          backgroundColor: AppColors.whiteStrong,
-          body: Center(
-            child: Text(
-              'IDÁIG LEGALÁBB ELJUT',
-              style: TextStyle(color: AppColors.blackStrong),
-            ),
-          ),
-        ),
-      ),
+      child: AppStartupWidget(),
     ),
   );
 }

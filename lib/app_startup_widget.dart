@@ -15,7 +15,17 @@ class AppStartupWidget extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return ref.watch(appStartupProvider).when(
-          data: (_) => const TheJustMatthewApp(),
+          data: (_) => MaterialApp(
+            home: Scaffold(
+              backgroundColor: AppColors.whiteStrong,
+              body: Center(
+                child: Text(
+                  'IDÁIG IS ELJUT',
+                  style: TextStyle(color: AppColors.blackStrong),
+                ),
+              ),
+            ),
+          ),
           error: (_, __) => _ErrorWidget(
             onRetry: () => ref.invalidate(appStartupProvider),
           ),
