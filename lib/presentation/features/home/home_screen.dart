@@ -1,11 +1,11 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:huntube_app/core/providers/files_provider.dart';
 import 'package:huntube_app/core/router/the_just_matthew_router.gr.dart';
 import 'package:huntube_app/presentation/extensions/context_extensions.dart';
 import 'package:huntube_app/presentation/utils/ui_constants.dart';
 import 'package:huntube_app/presentation/widgets/activity_indicator.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:huntube_app/presentation/widgets/elevated_button.dart';
 import 'package:huntube_app/presentation/widgets/error_page.dart';
 import 'package:huntube_app/presentation/widgets/texts.dart';
@@ -66,9 +66,7 @@ class HomeScreen extends ConsumerWidget {
               ),
             );
           },
-          // error: (error, stackTrace) =>
-          //     ErrorPage(onRetry: () => ref.invalidate(readFilesProvider)),
-      error: (error, stackTrace) => SafeArea(child: Scaffold(body: Container(color: Colors.white, child: Text(error.toString() +  '\n\n' + stackTrace.toString(), style: TextStyle(fontSize: 12),),))),
+          error: (error, stackTrace) => ErrorPage(onRetry: ref.invalidate(readFilesProvider)),
           loading: ActivityIndicatorApp.new,
         );
   }
