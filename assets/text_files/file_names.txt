@@ -302,3 +302,139 @@ Peersze
 peersze
 Voldemort
 voldemort
+/start/
+A csillag végén
+/collection/karib
+A kaksi-tenger
+karib_vader_kaksi_tenger
+Hajók, emberek és emberhajók
+karib_vader_hajok_emberek_emberhajok
+Fura egybeesés – hajó emberekkel?
+karib_vader_fura_egybeeses
+Családunk legszexibb temploma
+karib_vader_legszexibb_templom
+Ez itt a tolvaj – it’s me!
+karib_vader_ez_itt_a_tolvaj
+Bridget Jones börtönébe
+karib_vader_bridget_jones_bortone
+Miért? Anyádért!
+karib_vader_miert_anyadert
+Anyádért!
+karib_vader_anyadert
+Több gőzt! Több gőzt!
+karib_vader_tobb_gozt_duplan
+Farbabaszó kapitány
+karib_vader_kapitany
+Isten hozott!
+karib_vader_isten_hozott
+Beszartam – több gőzt!
+karib_vader_beszartam_tobb_gozt
+Beszartam
+karib_vader_beszartam
+Több gőzt!
+karib_vader_tobb_gozt
+Hallom, szeretnétek tőlem… – én inkább nem
+karib_vader_hallom_szeretnetek
+Én inkább nem
+karib_vader_en_inkabb_nem
+Bogi…
+karib_vader_bogi
+Olyan megbántott az Alex
+karib_vader_megbantott_az_alex
+Vagy mit érzel?
+karib_vader_vagy_mit_erzel
+Kalózdal
+karib_vader_kalozdal
+Felhangzott a dal – eljött az idő
+karib_vader_eljott_az_ido
+Össze kell inni a kalózok tanácsát
+karib_vader_ossze_kell_inni
+Ki ki vagy?
+karib_vader_ki_ki_vagy
+Követned kell a hívást – több gőzt!
+karib_vader_kovetned_kell_a_hivast
+A világ kalózai mind összefosnak
+karib_vader_osszefosnak
+Több gőzt! – dadogva
+karib_vader_tobb_gozt_dadogva
+Gőzdíjat tűztek ki a fejünkre
+karib_vader_gozdijat
+Több gőzt! – mélyen
+karib_vader_tobb_gozt_melyen
+Gyere! Kérlek!
+karib_vader_gyere_kerlek
+/start/
+A Gyűrű Szövetsége part 1
+/collection/gyuru
+Nem szokás csak úgy besétálni
+gyuru_szovetseg_1_nem_szokas_besetalni
+Más lett a világ – érzem a vizeletben
+gyuru_szovetseg_1_mas_lett_a_vilag
+Kovács Isildur apja
+gyuru_szovetseg_1_kovacs_isildur
+A gyűrű Tündéhez került
+gyuru_szovetseg_1_a_gyuru_tundehez_kerult
+Dugd csak meg a szerelmed
+gyuru_szovetseg_1_dugd_csak_meg_a_szerelmed
+Na, megvan!
+gyuru_szovetseg_1_na_megvan
+A hobbitok hős harcosok
+gyuru_szovetseg_1_hos_harcos_hobbitok
+Mi az Istent csinálsz, hülye gyerek?
+gyuru_szovetseg_1_hulye_gyerek
+Serfőzés és fűszívás
+gyuru_szovetseg_1_serfozes_es_fuszivas
+Frodó sosem késik
+gyuru_szovetseg_1_frodo_sosem_kesik
+Egy mágus sosem késik – ezt hallja a tanárom is
+gyuru_szovetseg_1_egy_magus_sosem_kesik
+De örülök, hogy látlak, Gandalf! – hagyjál már
+gyuru_szovetseg_1_orulok_hogy_latlak_gandalf
+Hagyjál már a gecibe!
+gyuru_szovetseg_1_hagyjal_mar
+A fél megye – a másik fele magától is eljön
+gyuru_szovetseg_1_a_fel_megye
+Tudom, hogy közöd van hozzá – szó sincs róla
+gyuru_szovetseg_1_titkolozz_csak
+Míg te nem jöttél, mi krákosok remekül megvoltunk
+gyuru_szovetseg_1_mig_te_nem_jottel
+Gandalf keres magának egy másik hobbitot
+gyuru_szovetseg_1_egy_masik_hobbit
+Nem, köszönjük! – Gandalf és Bilbó az ajtónál
+gyuru_szovetseg_1_gandalf_bilbo_ajtos_beszelgetes
+Nem, köszönjük!
+gyuru_szovetseg_1_nem_koszonjuk
+Ki hinné, hogy 111 éves lettél? – én elhiszem
+gyuru_szovetseg_1_szaztizenegy_eves
+Fuck off!
+gyuru_szovetseg_1_fuck_off
+Köszönöm, hogy megtaláltad
+gyuru_szovetseg_1_koszonom_hogy_megtalaltad
+Aranyeső
+gyuru_szovetseg_1_aranyeso
+A te ötleted volt!
+gyuru_szovetseg_1_a_te_otleted_volt
+Én meg nagyon rendes
+gyuru_szovetseg_1_nagyon_rendes
+Nem szívjóságból fogadtalak be
+gyuru_szovetseg_1_nem_szivjosagbol
+Jártál már a házi serfőzdében? – nem ez a lényeg
+gyuru_szovetseg_1_hazi_serfozde
+Illetve igen, de most nem ez a lényeg
+gyuru_szovetseg_1_illetve_igen
+Bilbó születésnapi beszéde
+gyuru_szovetseg_1_szulinapi_beszed
+A felét se szeretem feleannyira
+gyuru_szovetseg_1_a_felet_se_szeretem
+Ezennel elbúcsúzom – ég veletek
+gyuru_szovetseg_1_eg_veletek
+Látsz rajta valamit? – nincs rajta semmi
+gyuru_szovetseg_1_latsz_rajta_valamit
+Mi történt, Gandalf?
+gyuru_szovetseg_1_mi_tortent_gandalf
+Mordorba nem szokás csak úgy besétálni
+gyuru_szovetseg_1_mordor_monolog
+Come to Mordor!
+gyuru_szovetseg_1_come_to_mordor
+Szerencsétek, hobbitok, hogy a hobbitok a hobbitok
+gyuru_szovetseg_1_szerencsetek_hobbitok

@@ -5,7 +5,8 @@ import 'package:auto_route/auto_route.dart';
 class TheJustMatthewRouter extends $TheJustMatthewRouter {
   @override
   List<AutoRoute> get routes => [
-        AutoRoute(page: HomeRoute.page, initial: true),
-        AutoRoute(page: OnePartListRoute.page),
-      ];
+    AutoRoute(page: HomeRoute.page, initial: true),
+    AutoRoute(page: CollectionPartsRoute.page),
+    AutoRoute(page: OnePartListRoute.page),
+  ];
 }

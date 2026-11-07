@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:huntube_app/domain/models/file_data.dart';
+import 'package:huntube_app/domain/models/part_collection.dart';
 
 @immutable
 class PartFiles {
-  PartFiles({
+  const PartFiles({
     required this.id,
     required this.title,
     required this.files,
+    this.collection = PartCollection.herri,
   });
 
+  final PartCollection collection;
   final int id;
   final String title;
   final List<FileData> files;

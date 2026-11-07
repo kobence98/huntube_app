@@ -3,40 +3,50 @@ import 'dart:async';
 import 'package:huntube_app/domain/models/file_data.dart';
 import 'package:flutter/services.dart';
 import 'package:huntube_app/domain/models/part_files.dart';
+import 'package:huntube_app/domain/models/part_collection.dart';
 import 'package:huntube_app/generated/assets.gen.dart';
-import 'package:huntube_app/presentation/extensions/context_extensions.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'files_provider.g.dart';
 
 @riverpod
 Future<List<PartFiles>> readFiles(ReadFilesRef ref) async {
-  List<PartFiles> partFiles = [];
+  final data = await rootBundle.loadString(Assets.textFiles.fileNames);
+  final sections = data
+      .replaceAll('\r\n', '\n')
+      .replaceAll('\r', '\n')
+      .split('/start/')
+      .skip(1);
+  final parts = <PartFiles>[];
+  var soundId = 0;
 
-  String data = await rootBundle.loadString(Assets.textFiles.fileNames);
-  int partIndex = 0;
-  //Nem minden eszközön ugyanaz a line separator, így le kell cserélni az egyéb line separatort \n-re
-  List<String> parts = data.replaceAll('\r\n', '\n').replaceAll('\r', '\n').split('/start/');
-  parts.removeAt(0);
-
-  for (int i = 0; i < parts.length; i++) {
-    List<FileData> files = [];
-    parts.elementAt(i).replaceAll('\r\n', '\n');
-    parts.elementAt(i).replaceAll('\r', '\n');
-    List<String> lines = parts.elementAt(i).split("\n");
-    lines.removeAt(0);
-    lines.removeLast();
-    for (int j = 1; j < lines.length; j++) {
+  for (final section in sections) {
+    final lines = section.trim().split('\n');
+    final title = lines.first;
+    var firstSoundLine = 1;
+    var collection = PartCollection.herri;
+    if (lines.length > 1 && lines[1].startsWith('/collection/')) {
+      final name = lines[1].substring('/collection/'.length);
+      collection = PartCollection.values.byName(name);
+      firstSoundLine++;
+    }
+    if ((lines.length - firstSoundLine).isOdd) {
+      throw FormatException('Incomplete sound entry in $title');
+    }
+    final files = <FileData>[];
+    for (var i = firstSoundLine; i < lines.length; i += 2) {
       files.add(
-        FileData(
-          id: partIndex++,
-          title: lines.elementAt(j++),
-          assetName: lines.elementAt(j),
-        ),
+        FileData(id: soundId++, title: lines[i], assetName: lines[i + 1]),
       );
     }
-    partFiles.add(PartFiles(id: i, title: lines.first, files: files));
+    parts.add(
+      PartFiles(
+        id: parts.length,
+        title: title,
+        files: files,
+        collection: collection,
+      ),
+    );
   }
-
-  return partFiles;
+  return parts;
 }

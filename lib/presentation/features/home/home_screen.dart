@@ -1,4 +1,5 @@
 import 'package:huntube_app/core/providers/files_provider.dart';
+import 'package:huntube_app/domain/models/part_collection.dart';
 import 'package:huntube_app/core/router/the_just_matthew_router.gr.dart';
 import 'package:huntube_app/presentation/extensions/context_extensions.dart';
 import 'package:huntube_app/presentation/utils/ui_constants.dart';
@@ -19,32 +20,41 @@ class HomeScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     int tapNumber = 0;
     bool easterEggActivated = false;
-    return ref.watch(readFilesProvider).when(
+    return ref
+        .watch(readFilesProvider)
+        .when(
           data: (parts) {
             return SafeArea(
               child: Scaffold(
                 appBar: TappableAppBar(
                   onTap: () {
-                    if(++tapNumber == 10){
+                    if (++tapNumber == 10) {
                       easterEggActivated = true;
-                      context.showSnackBar(text: 'Aktiváltad az easter egget! Jó szórakozást!:)', isSuccess: true);
-                    }
-                    else if(tapNumber > 13){
-                      context.showSnackBar(text: 'Már aktiváltad az easter egget, ne legyél mohó!:)');
+                      context.showSnackBar(
+                        text: 'Aktiváltad az easter egget! Jó szórakozást!:)',
+                        isSuccess: true,
+                      );
+                    } else if (tapNumber > 13) {
+                      context.showSnackBar(
+                        text:
+                            'Már aktiváltad az easter egget, ne legyél mohó!:)',
+                      );
                     }
                   },
-                  onLongPress: (){
-                    if(easterEggActivated){
+                  onLongPress: () {
+                    if (easterEggActivated) {
                       easterEggActivated = false;
                       tapNumber = 0;
-                      context.showSnackBar(text: 'Visszakapcsoltad a normál módot!');
+                      context.showSnackBar(
+                        text: 'Visszakapcsoltad a normál módot!',
+                      );
                     }
                   },
                   appBar: AppBar(
                     shadowColor: context.appColors.teal,
                     elevation: 10,
                     backgroundColor: context.appColors.blackStrong,
-                    title: new Center(
+                    title: Center(
                       child: H3Text(
                         text: 'R.I.P TheJustMatthew',
                         textAlign: TextAlign.center,
@@ -55,40 +65,48 @@ class HomeScreen extends ConsumerWidget {
                 ),
                 backgroundColor: context.appColors.blackStrong,
                 body: ListView.builder(
-                  padding: EdgeInsets.only(top: 10.0),
-                  itemCount: parts.length,
+                  padding: const EdgeInsets.only(top: 10.0),
+                  itemCount: PartCollection.values.length,
                   itemBuilder: (context, position) {
                     return ElevatedContainer(
                       margin: UIConstants.paddingAll8,
                       borderRadius: UIConstants.radiusAll8,
-                      shadowOffset: Offset(2, 1),
+                      shadowOffset: const Offset(2, 1),
                       foregroundColor: context.appColors.navy,
                       shadowColor: context.appColors.teal,
                       width: double.infinity,
                       height: 60,
                       child: Center(
                         child: H3AutosizeText(
-                          text: parts.elementAt(position).title,
+                          text: PartCollection.values[position].title,
                           color: context.appColors.whiteStrong,
                           textAlign: TextAlign.center,
                         ),
                       ),
-                      onTap: () => Future.delayed(
-                        Duration(milliseconds: 200),
-                        () => context.router.push(
-                          OnePartListRoute(
-                            partFiles: parts.elementAt(position),
-                            easterEggActivated: easterEggActivated,
-                          ),
-                        ),
-                      ),
+                      onTap: () =>
+                          Future.delayed(const Duration(milliseconds: 200), () {
+                            if (!context.mounted) return;
+                            final collection = PartCollection.values[position];
+                            context.router.push(
+                              CollectionPartsRoute(
+                                collection: collection,
+                                parts: parts
+                                    .where(
+                                      (part) => part.collection == collection,
+                                    )
+                                    .toList(),
+                                easterEggActivated: easterEggActivated,
+                              ),
+                            );
+                          }),
                     );
                   },
                 ),
               ),
             );
           },
-          error: (error, stackTrace) => ErrorPage(onRetry: () => ref.invalidate(readFilesProvider)),
+          error: (error, stackTrace) =>
+              ErrorPage(onRetry: () => ref.invalidate(readFilesProvider)),
           loading: ActivityIndicatorApp.new,
         );
   }

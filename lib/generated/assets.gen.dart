@@ -154,6 +154,150 @@ class $AssetsAudiosGen {
   /// File path: assets/audios/gyerunk.mp3
   String get gyerunk => 'assets/audios/gyerunk.mp3';
 
+  /// File path: assets/audios/gyuru_szovetseg_1_a_fel_megye.mp3
+  String get gyuruSzovetseg1AFelMegye =>
+      'assets/audios/gyuru_szovetseg_1_a_fel_megye.mp3';
+
+  /// File path: assets/audios/gyuru_szovetseg_1_a_felet_se_szeretem.mp3
+  String get gyuruSzovetseg1AFeletSeSzeretem =>
+      'assets/audios/gyuru_szovetseg_1_a_felet_se_szeretem.mp3';
+
+  /// File path: assets/audios/gyuru_szovetseg_1_a_gyuru_tundehez_kerult.mp3
+  String get gyuruSzovetseg1AGyuruTundehezKerult =>
+      'assets/audios/gyuru_szovetseg_1_a_gyuru_tundehez_kerult.mp3';
+
+  /// File path: assets/audios/gyuru_szovetseg_1_a_te_otleted_volt.mp3
+  String get gyuruSzovetseg1ATeOtletedVolt =>
+      'assets/audios/gyuru_szovetseg_1_a_te_otleted_volt.mp3';
+
+  /// File path: assets/audios/gyuru_szovetseg_1_aranyeso.mp3
+  String get gyuruSzovetseg1Aranyeso =>
+      'assets/audios/gyuru_szovetseg_1_aranyeso.mp3';
+
+  /// File path: assets/audios/gyuru_szovetseg_1_come_to_mordor.mp3
+  String get gyuruSzovetseg1ComeToMordor =>
+      'assets/audios/gyuru_szovetseg_1_come_to_mordor.mp3';
+
+  /// File path: assets/audios/gyuru_szovetseg_1_dugd_csak_meg_a_szerelmed.mp3
+  String get gyuruSzovetseg1DugdCsakMegASzerelmed =>
+      'assets/audios/gyuru_szovetseg_1_dugd_csak_meg_a_szerelmed.mp3';
+
+  /// File path: assets/audios/gyuru_szovetseg_1_eg_veletek.mp3
+  String get gyuruSzovetseg1EgVeletek =>
+      'assets/audios/gyuru_szovetseg_1_eg_veletek.mp3';
+
+  /// File path: assets/audios/gyuru_szovetseg_1_egy_magus_sosem_kesik.mp3
+  String get gyuruSzovetseg1EgyMagusSosemKesik =>
+      'assets/audios/gyuru_szovetseg_1_egy_magus_sosem_kesik.mp3';
+
+  /// File path: assets/audios/gyuru_szovetseg_1_egy_masik_hobbit.mp3
+  String get gyuruSzovetseg1EgyMasikHobbit =>
+      'assets/audios/gyuru_szovetseg_1_egy_masik_hobbit.mp3';
+
+  /// File path: assets/audios/gyuru_szovetseg_1_frodo_sosem_kesik.mp3
+  String get gyuruSzovetseg1FrodoSosemKesik =>
+      'assets/audios/gyuru_szovetseg_1_frodo_sosem_kesik.mp3';
+
+  /// File path: assets/audios/gyuru_szovetseg_1_fuck_off.mp3
+  String get gyuruSzovetseg1FuckOff =>
+      'assets/audios/gyuru_szovetseg_1_fuck_off.mp3';
+
+  /// File path: assets/audios/gyuru_szovetseg_1_gandalf_bilbo_ajtos_beszelgetes.mp3
+  String get gyuruSzovetseg1GandalfBilboAjtosBeszelgetes =>
+      'assets/audios/gyuru_szovetseg_1_gandalf_bilbo_ajtos_beszelgetes.mp3';
+
+  /// File path: assets/audios/gyuru_szovetseg_1_hagyjal_mar.mp3
+  String get gyuruSzovetseg1HagyjalMar =>
+      'assets/audios/gyuru_szovetseg_1_hagyjal_mar.mp3';
+
+  /// File path: assets/audios/gyuru_szovetseg_1_hazi_serfozde.mp3
+  String get gyuruSzovetseg1HaziSerfozde =>
+      'assets/audios/gyuru_szovetseg_1_hazi_serfozde.mp3';
+
+  /// File path: assets/audios/gyuru_szovetseg_1_hos_harcos_hobbitok.mp3
+  String get gyuruSzovetseg1HosHarcosHobbitok =>
+      'assets/audios/gyuru_szovetseg_1_hos_harcos_hobbitok.mp3';
+
+  /// File path: assets/audios/gyuru_szovetseg_1_hulye_gyerek.mp3
+  String get gyuruSzovetseg1HulyeGyerek =>
+      'assets/audios/gyuru_szovetseg_1_hulye_gyerek.mp3';
+
+  /// File path: assets/audios/gyuru_szovetseg_1_illetve_igen.mp3
+  String get gyuruSzovetseg1IlletveIgen =>
+      'assets/audios/gyuru_szovetseg_1_illetve_igen.mp3';
+
+  /// File path: assets/audios/gyuru_szovetseg_1_koszonom_hogy_megtalaltad.mp3
+  String get gyuruSzovetseg1KoszonomHogyMegtalaltad =>
+      'assets/audios/gyuru_szovetseg_1_koszonom_hogy_megtalaltad.mp3';
+
+  /// File path: assets/audios/gyuru_szovetseg_1_kovacs_isildur.mp3
+  String get gyuruSzovetseg1KovacsIsildur =>
+      'assets/audios/gyuru_szovetseg_1_kovacs_isildur.mp3';
+
+  /// File path: assets/audios/gyuru_szovetseg_1_latsz_rajta_valamit.mp3
+  String get gyuruSzovetseg1LatszRajtaValamit =>
+      'assets/audios/gyuru_szovetseg_1_latsz_rajta_valamit.mp3';
+
+  /// File path: assets/audios/gyuru_szovetseg_1_mas_lett_a_vilag.mp3
+  String get gyuruSzovetseg1MasLettAVilag =>
+      'assets/audios/gyuru_szovetseg_1_mas_lett_a_vilag.mp3';
+
+  /// File path: assets/audios/gyuru_szovetseg_1_mi_tortent_gandalf.mp3
+  String get gyuruSzovetseg1MiTortentGandalf =>
+      'assets/audios/gyuru_szovetseg_1_mi_tortent_gandalf.mp3';
+
+  /// File path: assets/audios/gyuru_szovetseg_1_mig_te_nem_jottel.mp3
+  String get gyuruSzovetseg1MigTeNemJottel =>
+      'assets/audios/gyuru_szovetseg_1_mig_te_nem_jottel.mp3';
+
+  /// File path: assets/audios/gyuru_szovetseg_1_mordor_monolog.mp3
+  String get gyuruSzovetseg1MordorMonolog =>
+      'assets/audios/gyuru_szovetseg_1_mordor_monolog.mp3';
+
+  /// File path: assets/audios/gyuru_szovetseg_1_na_megvan.mp3
+  String get gyuruSzovetseg1NaMegvan =>
+      'assets/audios/gyuru_szovetseg_1_na_megvan.mp3';
+
+  /// File path: assets/audios/gyuru_szovetseg_1_nagyon_rendes.mp3
+  String get gyuruSzovetseg1NagyonRendes =>
+      'assets/audios/gyuru_szovetseg_1_nagyon_rendes.mp3';
+
+  /// File path: assets/audios/gyuru_szovetseg_1_nem_koszonjuk.mp3
+  String get gyuruSzovetseg1NemKoszonjuk =>
+      'assets/audios/gyuru_szovetseg_1_nem_koszonjuk.mp3';
+
+  /// File path: assets/audios/gyuru_szovetseg_1_nem_szivjosagbol.mp3
+  String get gyuruSzovetseg1NemSzivjosagbol =>
+      'assets/audios/gyuru_szovetseg_1_nem_szivjosagbol.mp3';
+
+  /// File path: assets/audios/gyuru_szovetseg_1_nem_szokas_besetalni.mp3
+  String get gyuruSzovetseg1NemSzokasBesetalni =>
+      'assets/audios/gyuru_szovetseg_1_nem_szokas_besetalni.mp3';
+
+  /// File path: assets/audios/gyuru_szovetseg_1_orulok_hogy_latlak_gandalf.mp3
+  String get gyuruSzovetseg1OrulokHogyLatlakGandalf =>
+      'assets/audios/gyuru_szovetseg_1_orulok_hogy_latlak_gandalf.mp3';
+
+  /// File path: assets/audios/gyuru_szovetseg_1_serfozes_es_fuszivas.mp3
+  String get gyuruSzovetseg1SerfozesEsFuszivas =>
+      'assets/audios/gyuru_szovetseg_1_serfozes_es_fuszivas.mp3';
+
+  /// File path: assets/audios/gyuru_szovetseg_1_szaztizenegy_eves.mp3
+  String get gyuruSzovetseg1SzaztizenegyEves =>
+      'assets/audios/gyuru_szovetseg_1_szaztizenegy_eves.mp3';
+
+  /// File path: assets/audios/gyuru_szovetseg_1_szerencsetek_hobbitok.mp3
+  String get gyuruSzovetseg1SzerencsetekHobbitok =>
+      'assets/audios/gyuru_szovetseg_1_szerencsetek_hobbitok.mp3';
+
+  /// File path: assets/audios/gyuru_szovetseg_1_szulinapi_beszed.mp3
+  String get gyuruSzovetseg1SzulinapiBeszed =>
+      'assets/audios/gyuru_szovetseg_1_szulinapi_beszed.mp3';
+
+  /// File path: assets/audios/gyuru_szovetseg_1_titkolozz_csak.mp3
+  String get gyuruSzovetseg1TitkolozzCsak =>
+      'assets/audios/gyuru_szovetseg_1_titkolozz_csak.mp3';
+
   /// File path: assets/audios/ha_nem_latnad.mp3
   String get haNemLatnad => 'assets/audios/ha_nem_latnad.mp3';
 
@@ -232,6 +376,114 @@ class $AssetsAudiosGen {
 
   /// File path: assets/audios/karambol.mp3
   String get karambol => 'assets/audios/karambol.mp3';
+
+  /// File path: assets/audios/karib_vader_anyadert.mp3
+  String get karibVaderAnyadert => 'assets/audios/karib_vader_anyadert.mp3';
+
+  /// File path: assets/audios/karib_vader_beszartam.mp3
+  String get karibVaderBeszartam => 'assets/audios/karib_vader_beszartam.mp3';
+
+  /// File path: assets/audios/karib_vader_beszartam_tobb_gozt.mp3
+  String get karibVaderBeszartamTobbGozt =>
+      'assets/audios/karib_vader_beszartam_tobb_gozt.mp3';
+
+  /// File path: assets/audios/karib_vader_bogi.mp3
+  String get karibVaderBogi => 'assets/audios/karib_vader_bogi.mp3';
+
+  /// File path: assets/audios/karib_vader_bridget_jones_bortone.mp3
+  String get karibVaderBridgetJonesBortone =>
+      'assets/audios/karib_vader_bridget_jones_bortone.mp3';
+
+  /// File path: assets/audios/karib_vader_eljott_az_ido.mp3
+  String get karibVaderEljottAzIdo =>
+      'assets/audios/karib_vader_eljott_az_ido.mp3';
+
+  /// File path: assets/audios/karib_vader_en_inkabb_nem.mp3
+  String get karibVaderEnInkabbNem =>
+      'assets/audios/karib_vader_en_inkabb_nem.mp3';
+
+  /// File path: assets/audios/karib_vader_ez_itt_a_tolvaj.mp3
+  String get karibVaderEzIttATolvaj =>
+      'assets/audios/karib_vader_ez_itt_a_tolvaj.mp3';
+
+  /// File path: assets/audios/karib_vader_fura_egybeeses.mp3
+  String get karibVaderFuraEgybeeses =>
+      'assets/audios/karib_vader_fura_egybeeses.mp3';
+
+  /// File path: assets/audios/karib_vader_gozdijat.mp3
+  String get karibVaderGozdijat => 'assets/audios/karib_vader_gozdijat.mp3';
+
+  /// File path: assets/audios/karib_vader_gyere_kerlek.mp3
+  String get karibVaderGyereKerlek =>
+      'assets/audios/karib_vader_gyere_kerlek.mp3';
+
+  /// File path: assets/audios/karib_vader_hajok_emberek_emberhajok.mp3
+  String get karibVaderHajokEmberekEmberhajok =>
+      'assets/audios/karib_vader_hajok_emberek_emberhajok.mp3';
+
+  /// File path: assets/audios/karib_vader_hallom_szeretnetek.mp3
+  String get karibVaderHallomSzeretnetek =>
+      'assets/audios/karib_vader_hallom_szeretnetek.mp3';
+
+  /// File path: assets/audios/karib_vader_isten_hozott.mp3
+  String get karibVaderIstenHozott =>
+      'assets/audios/karib_vader_isten_hozott.mp3';
+
+  /// File path: assets/audios/karib_vader_kaksi_tenger.mp3
+  String get karibVaderKaksiTenger =>
+      'assets/audios/karib_vader_kaksi_tenger.mp3';
+
+  /// File path: assets/audios/karib_vader_kalozdal.mp3
+  String get karibVaderKalozdal => 'assets/audios/karib_vader_kalozdal.mp3';
+
+  /// File path: assets/audios/karib_vader_kapitany.mp3
+  String get karibVaderKapitany => 'assets/audios/karib_vader_kapitany.mp3';
+
+  /// File path: assets/audios/karib_vader_ki_ki_vagy.mp3
+  String get karibVaderKiKiVagy => 'assets/audios/karib_vader_ki_ki_vagy.mp3';
+
+  /// File path: assets/audios/karib_vader_kovetned_kell_a_hivast.mp3
+  String get karibVaderKovetnedKellAHivast =>
+      'assets/audios/karib_vader_kovetned_kell_a_hivast.mp3';
+
+  /// File path: assets/audios/karib_vader_legszexibb_templom.mp3
+  String get karibVaderLegszexibbTemplom =>
+      'assets/audios/karib_vader_legszexibb_templom.mp3';
+
+  /// File path: assets/audios/karib_vader_megbantott_az_alex.mp3
+  String get karibVaderMegbantottAzAlex =>
+      'assets/audios/karib_vader_megbantott_az_alex.mp3';
+
+  /// File path: assets/audios/karib_vader_miert_anyadert.mp3
+  String get karibVaderMiertAnyadert =>
+      'assets/audios/karib_vader_miert_anyadert.mp3';
+
+  /// File path: assets/audios/karib_vader_ossze_kell_inni.mp3
+  String get karibVaderOsszeKellInni =>
+      'assets/audios/karib_vader_ossze_kell_inni.mp3';
+
+  /// File path: assets/audios/karib_vader_osszefosnak.mp3
+  String get karibVaderOsszefosnak =>
+      'assets/audios/karib_vader_osszefosnak.mp3';
+
+  /// File path: assets/audios/karib_vader_tobb_gozt.mp3
+  String get karibVaderTobbGozt => 'assets/audios/karib_vader_tobb_gozt.mp3';
+
+  /// File path: assets/audios/karib_vader_tobb_gozt_dadogva.mp3
+  String get karibVaderTobbGoztDadogva =>
+      'assets/audios/karib_vader_tobb_gozt_dadogva.mp3';
+
+  /// File path: assets/audios/karib_vader_tobb_gozt_duplan.mp3
+  String get karibVaderTobbGoztDuplan =>
+      'assets/audios/karib_vader_tobb_gozt_duplan.mp3';
+
+  /// File path: assets/audios/karib_vader_tobb_gozt_melyen.mp3
+  String get karibVaderTobbGoztMelyen =>
+      'assets/audios/karib_vader_tobb_gozt_melyen.mp3';
+
+  /// File path: assets/audios/karib_vader_vagy_mit_erzel.mp3
+  String get karibVaderVagyMitErzel =>
+      'assets/audios/karib_vader_vagy_mit_erzel.mp3';
 
   /// File path: assets/audios/kelj_fel.mp3
   String get keljFel => 'assets/audios/kelj_fel.mp3';
@@ -524,6 +776,42 @@ class $AssetsAudiosGen {
         fuldokloKohoges,
         gyakorlatiOktatas,
         gyerunk,
+        gyuruSzovetseg1AFelMegye,
+        gyuruSzovetseg1AFeletSeSzeretem,
+        gyuruSzovetseg1AGyuruTundehezKerult,
+        gyuruSzovetseg1ATeOtletedVolt,
+        gyuruSzovetseg1Aranyeso,
+        gyuruSzovetseg1ComeToMordor,
+        gyuruSzovetseg1DugdCsakMegASzerelmed,
+        gyuruSzovetseg1EgVeletek,
+        gyuruSzovetseg1EgyMagusSosemKesik,
+        gyuruSzovetseg1EgyMasikHobbit,
+        gyuruSzovetseg1FrodoSosemKesik,
+        gyuruSzovetseg1FuckOff,
+        gyuruSzovetseg1GandalfBilboAjtosBeszelgetes,
+        gyuruSzovetseg1HagyjalMar,
+        gyuruSzovetseg1HaziSerfozde,
+        gyuruSzovetseg1HosHarcosHobbitok,
+        gyuruSzovetseg1HulyeGyerek,
+        gyuruSzovetseg1IlletveIgen,
+        gyuruSzovetseg1KoszonomHogyMegtalaltad,
+        gyuruSzovetseg1KovacsIsildur,
+        gyuruSzovetseg1LatszRajtaValamit,
+        gyuruSzovetseg1MasLettAVilag,
+        gyuruSzovetseg1MiTortentGandalf,
+        gyuruSzovetseg1MigTeNemJottel,
+        gyuruSzovetseg1MordorMonolog,
+        gyuruSzovetseg1NaMegvan,
+        gyuruSzovetseg1NagyonRendes,
+        gyuruSzovetseg1NemKoszonjuk,
+        gyuruSzovetseg1NemSzivjosagbol,
+        gyuruSzovetseg1NemSzokasBesetalni,
+        gyuruSzovetseg1OrulokHogyLatlakGandalf,
+        gyuruSzovetseg1SerfozesEsFuszivas,
+        gyuruSzovetseg1SzaztizenegyEves,
+        gyuruSzovetseg1SzerencsetekHobbitok,
+        gyuruSzovetseg1SzulinapiBeszed,
+        gyuruSzovetseg1TitkolozzCsak,
         haNemLatnad,
         halalSzineziAzAnyad,
         hanyAjandekomVan,
@@ -549,6 +837,35 @@ class $AssetsAudiosGen {
         jolCsinaltam,
         jotanacs,
         karambol,
+        karibVaderAnyadert,
+        karibVaderBeszartam,
+        karibVaderBeszartamTobbGozt,
+        karibVaderBogi,
+        karibVaderBridgetJonesBortone,
+        karibVaderEljottAzIdo,
+        karibVaderEnInkabbNem,
+        karibVaderEzIttATolvaj,
+        karibVaderFuraEgybeeses,
+        karibVaderGozdijat,
+        karibVaderGyereKerlek,
+        karibVaderHajokEmberekEmberhajok,
+        karibVaderHallomSzeretnetek,
+        karibVaderIstenHozott,
+        karibVaderKaksiTenger,
+        karibVaderKalozdal,
+        karibVaderKapitany,
+        karibVaderKiKiVagy,
+        karibVaderKovetnedKellAHivast,
+        karibVaderLegszexibbTemplom,
+        karibVaderMegbantottAzAlex,
+        karibVaderMiertAnyadert,
+        karibVaderOsszeKellInni,
+        karibVaderOsszefosnak,
+        karibVaderTobbGozt,
+        karibVaderTobbGoztDadogva,
+        karibVaderTobbGoztDuplan,
+        karibVaderTobbGoztMelyen,
+        karibVaderVagyMitErzel,
         keljFel,
         kerdezhetekValamit,
         kiVanItt,
