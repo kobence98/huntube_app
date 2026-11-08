@@ -1,3 +1,4 @@
+import 'package:huntube_app/core/providers/files_provider.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -31,6 +32,17 @@ class OnePartListScreen extends ConsumerStatefulWidget {
 class _OnePartListScreenState extends ConsumerState<OnePartListScreen> {
   @override
   Widget build(BuildContext context) {
+    final catalog = ref.watch(readFilesProvider).valueOrNull;
+    final matches = catalog?.where((part) => part.id == widget.partFiles.id);
+    final partFiles = matches == null
+        ? widget.partFiles
+        : matches.isNotEmpty
+        ? matches.first
+        : PartFiles(
+            id: widget.partFiles.id,
+            title: widget.partFiles.title,
+            files: const [],
+          );
     return ref
         .watch(cachedLikesProvider)
         .when(
@@ -39,10 +51,10 @@ class _OnePartListScreenState extends ConsumerState<OnePartListScreen> {
               filterFavouritesNotifierProvider,
             );
             final files = isFavouritesFilterOn
-                ? widget.partFiles.files.where(
+                ? partFiles.files.where(
                     (file) => likes.map((like) => like.id).contains(file.id),
                   )
-                : widget.partFiles.files;
+                : partFiles.files;
             return ProviderScope(
               child: SafeArea(
                 child: Scaffold(
@@ -50,23 +62,23 @@ class _OnePartListScreenState extends ConsumerState<OnePartListScreen> {
                     shadowColor: context.appColors.teal,
                     elevation: 10,
                     backgroundColor: context.appColors.blackStrong,
-                    title: new Center(
+                    title: Center(
                       child: H4Text(
-                        text: widget.partFiles.title,
+                        text: partFiles.title,
                         textAlign: TextAlign.center,
                         color: context.appColors.whiteStrong,
                       ),
                     ),
                     leading: ElevatedContainer(
                       onTap: () => Future.delayed(
-                        Duration(milliseconds: 300),
+                        const Duration(milliseconds: 300),
                         context.router.maybePop,
                       ),
                       width: 30,
                       height: 30,
                       margin: UIConstants.paddingAll8,
                       borderRadius: UIConstants.radiusAll3,
-                      shadowOffset: Offset(2, 1),
+                      shadowOffset: const Offset(2, 1),
                       foregroundColor: context.appColors.navy,
                       shadowColor: context.appColors.teal,
                       child: Center(
@@ -82,7 +94,7 @@ class _OnePartListScreenState extends ConsumerState<OnePartListScreen> {
                         size: 30,
                         foregroundColor: context.appColors.navy,
                         shadowColor: context.appColors.teal,
-                        shadowOffset: Offset(1, 2),
+                        shadowOffset: const Offset(1, 2),
                         margin: UIConstants.paddingAll8,
                         onTap: () => _filterFavourites(isFavouritesFilterOn),
                       ),
@@ -91,7 +103,7 @@ class _OnePartListScreenState extends ConsumerState<OnePartListScreen> {
                   body: Container(
                     color: context.appColors.blackStrong,
                     child: ListView.builder(
-                      padding: EdgeInsets.only(top: 10.0),
+                      padding: const EdgeInsets.only(top: 10.0),
                       itemCount: files.length,
                       itemBuilder: (context, position) {
                         return ProgressBar(

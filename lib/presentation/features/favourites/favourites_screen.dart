@@ -86,7 +86,10 @@ class _FavouriteList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final slivers = <Widget>[];
-    for (final collection in PartCollection.values) {
+    for (final collection in {
+      ...PartCollection.values,
+      ...parts.map((part) => part.collection),
+    }) {
       final sections = [
         for (final part in parts.where((part) => part.collection == collection))
           (

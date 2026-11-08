@@ -6,6 +6,7 @@ import 'package:huntube_app/presentation/widgets/notifiers/elevated_button_notif
 
 class FavouritesButton extends ConsumerWidget {
   FavouritesButton({
+    super.key,
     this.size,
     this.onTap,
     this.margin = EdgeInsets.zero,
@@ -40,7 +41,7 @@ class FavouritesButton extends ConsumerWidget {
             ref.read(elevatedButtonNotifierProvider.notifier).buttonDown(_key),
         onTapUp: (_) {
           Future.delayed(
-            Duration(milliseconds: 150),
+            const Duration(milliseconds: 150),
             () => ref
                 .read(elevatedButtonNotifierProvider.notifier)
                 .buttonUp(_key),
@@ -52,11 +53,7 @@ class FavouritesButton extends ConsumerWidget {
           size: size,
           shadows: [
             if (!buttonPushedDown)
-              Shadow(
-                color: shadowColor,
-                offset: shadowOffset,
-                blurRadius: 5,
-              )
+              Shadow(color: shadowColor, offset: shadowOffset, blurRadius: 5),
           ],
         ),
       ),

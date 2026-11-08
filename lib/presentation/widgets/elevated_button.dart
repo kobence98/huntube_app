@@ -1,14 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:huntube_app/presentation/extensions/context_extensions.dart';
 import 'package:huntube_app/presentation/theme/app_colors.dart';
 import 'package:huntube_app/presentation/utils/ui_constants.dart';
 import 'package:huntube_app/presentation/widgets/notifiers/elevated_button_notifier.dart';
 
 class ElevatedContainer extends ConsumerWidget {
   ElevatedContainer({
+    super.key,
     this.width,
     this.height,
     this.child,
@@ -36,7 +35,8 @@ class ElevatedContainer extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final pushedDownButtonKey = ref.watch(elevatedButtonNotifierProvider);
-    final buttonPushedDown = pushedDownButtonKey != null && pushedDownButtonKey == _key;
+    final buttonPushedDown =
+        pushedDownButtonKey != null && pushedDownButtonKey == _key;
     return Padding(
       padding: EdgeInsets.only(
         top: margin.top + (buttonPushedDown ? shadowOffset.dy : 0),
@@ -50,8 +50,10 @@ class ElevatedContainer extends ConsumerWidget {
             ref.read(elevatedButtonNotifierProvider.notifier).buttonDown(_key),
         onTapUp: (_) {
           Future.delayed(
-            Duration(milliseconds: 150),
-            () => ref.read(elevatedButtonNotifierProvider.notifier).buttonUp(_key),
+            const Duration(milliseconds: 150),
+            () => ref
+                .read(elevatedButtonNotifierProvider.notifier)
+                .buttonUp(_key),
           );
         },
         child: Container(

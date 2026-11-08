@@ -5,9 +5,12 @@
 *.swp
 .DS_Store
 .atom/
+.build/
 .buildlog/
 .history
 .svn/
+.swiftpm/
+/sites/siman-herri-support/
 migrate_working_dir/
 
 # IntelliJ related
@@ -41,3 +44,11 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Private Android upload signing material
+/android/key.properties
+**/*.jks
+**/*.keystore
+
+# Local test coverage output
+/coverage/

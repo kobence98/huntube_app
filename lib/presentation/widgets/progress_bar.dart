@@ -99,12 +99,17 @@ class _ProgressBarState extends ConsumerState<ProgressBar>
     ref
         .read(progressBarNotifierProvider.notifier)
         .setActiveBar(widget.fileData.id);
-    final audioPath = Assets.audios.values
-        .firstWhere(
-          (path) => path == 'assets/audios/${widget.fileData.assetName}.mp3',
-        )
-        .replaceFirst('assets/', '');
-    await _player.setSource(AssetSource(audioPath));
+    final localPath = widget.fileData.localPath;
+    if (localPath != null) {
+      await _player.setSource(DeviceFileSource(localPath));
+    } else {
+      final audioPath = Assets.audios.values
+          .firstWhere(
+            (path) => path == 'assets/audios/${widget.fileData.assetName}.mp3',
+          )
+          .replaceFirst('assets/', '');
+      await _player.setSource(AssetSource(audioPath));
+    }
     if (!mounted || request != _playbackRequest) return;
     final duration = await _player.getDuration();
     if (!mounted || request != _playbackRequest) return;

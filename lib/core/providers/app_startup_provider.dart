@@ -1,3 +1,5 @@
+import 'dart:async';
+import 'package:huntube_app/core/providers/content_sync_provider.dart';
 import 'package:flutter/services.dart';
 import 'package:huntube_app/core/providers/isar_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -10,11 +12,10 @@ Future<void> appStartup(AppStartupRef ref) async {
     ref.invalidate(isarProvider);
   });
 
-  await Future.wait(
-    [
-      SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]),
-    ],
-  );
+  await Future.wait([
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]),
+  ]);
 
   await ref.watch(isarProvider.future);
+  unawaited(ref.read(contentSyncProvider.notifier).start());
 }

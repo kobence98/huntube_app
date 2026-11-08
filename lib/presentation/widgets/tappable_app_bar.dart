@@ -6,6 +6,7 @@ class TappableAppBar extends StatelessWidget implements PreferredSizeWidget {
   final AppBar appBar;
 
   const TappableAppBar({
+    super.key,
     required this.appBar,
     this.onTap,
     this.onLongPress,
@@ -13,7 +14,11 @@ class TappableAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(onTap: onTap, child: appBar, onLongPress: onLongPress,);
+    return GestureDetector(
+      onTap: onTap,
+      onLongPress: onLongPress,
+      child: appBar,
+    );
   }
 
   @override

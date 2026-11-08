@@ -1,3 +1,4 @@
+import 'package:huntube_app/core/providers/content_sync_provider.dart';
 import 'dart:async';
 
 import 'package:huntube_app/domain/models/file_data.dart';
@@ -27,7 +28,9 @@ Future<List<PartFiles>> readFiles(ReadFilesRef ref) async {
     var collection = PartCollection.herri;
     if (lines.length > 1 && lines[1].startsWith('/collection/')) {
       final name = lines[1].substring('/collection/'.length);
-      collection = PartCollection.values.byName(name);
+      collection = PartCollection.values.firstWhere(
+        (value) => value.name == name,
+      );
       firstSoundLine++;
     }
     if ((lines.length - firstSoundLine).isOdd) {
@@ -48,5 +51,6 @@ Future<List<PartFiles>> readFiles(ReadFilesRef ref) async {
       ),
     );
   }
-  return parts;
+  final downloaded = await ref.watch(downloadedPartsProvider.future);
+  return [...parts, ...downloaded];
 }

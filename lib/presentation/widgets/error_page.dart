@@ -5,7 +5,7 @@ import 'package:huntube_app/presentation/widgets/elevated_button.dart';
 import 'package:huntube_app/presentation/widgets/texts.dart';
 
 class ErrorPage extends StatefulWidget {
-  const ErrorPage({this.onRetry});
+  const ErrorPage({super.key, this.onRetry});
 
   final VoidCallback? onRetry;
 
@@ -29,7 +29,7 @@ class _ErrorPageState extends State<ErrorPage> {
                 children: [
                   const H3Text(
                     text:
-                    'Hiba az alkalmazás indításakor. Kérjük próbálja újra!',
+                        'Hiba az alkalmazás indításakor. Kérjük próbálja újra!',
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(height: 20),
@@ -38,10 +38,7 @@ class _ErrorPageState extends State<ErrorPage> {
                     height: 40,
                     width: double.infinity,
                     child: const Center(
-                      child: H3Text(
-                        text: 'Újra',
-                        textAlign: TextAlign.center,
-                      ),
+                      child: H3Text(text: 'Újra', textAlign: TextAlign.center),
                     ),
                   ),
                 ],

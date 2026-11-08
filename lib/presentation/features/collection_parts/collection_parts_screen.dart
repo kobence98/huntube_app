@@ -1,3 +1,6 @@
+import 'package:huntube_app/core/providers/content_sync_provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:huntube_app/core/providers/files_provider.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:huntube_app/core/router/the_just_matthew_router.gr.dart';
@@ -9,7 +12,7 @@ import 'package:huntube_app/presentation/widgets/elevated_button.dart';
 import 'package:huntube_app/presentation/widgets/texts.dart';
 
 @RoutePage()
-class CollectionPartsScreen extends StatelessWidget {
+class CollectionPartsScreen extends ConsumerWidget {
   const CollectionPartsScreen({
     super.key,
     required this.collection,
@@ -22,7 +25,18 @@ class CollectionPartsScreen extends StatelessWidget {
   final bool easterEggActivated;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final catalog = ref.watch(readFilesProvider).valueOrNull;
+    final knownCollections =
+        ref.watch(downloadedCollectionsProvider).valueOrNull ?? [];
+    final currentCollection =
+        knownCollections
+            .where((item) => item.name == collection.name)
+            .firstOrNull ??
+        collection;
+    final currentParts = catalog == null
+        ? parts
+        : catalog.where((part) => part.collection == collection).toList();
     return SafeArea(
       child: Scaffold(
         backgroundColor: context.appColors.blackStrong,
@@ -32,7 +46,7 @@ class CollectionPartsScreen extends StatelessWidget {
           backgroundColor: context.appColors.blackStrong,
           centerTitle: true,
           title: H3Text(
-            text: collection.title,
+            text: currentCollection.title,
             textAlign: TextAlign.center,
             color: context.appColors.whiteStrong,
           ),
@@ -57,7 +71,7 @@ class CollectionPartsScreen extends StatelessWidget {
             ),
           ),
         ),
-        body: parts.isEmpty
+        body: currentParts.isEmpty
             ? Center(
                 child: Padding(
                   padding: UIConstants.paddingAll16,
@@ -70,9 +84,9 @@ class CollectionPartsScreen extends StatelessWidget {
               )
             : ListView.builder(
                 padding: const EdgeInsets.only(top: 10),
-                itemCount: parts.length,
+                itemCount: currentParts.length,
                 itemBuilder: (context, position) {
-                  final part = parts[position];
+                  final part = currentParts[position];
                   return Semantics(
                     key: ValueKey(part.id),
                     button: true,

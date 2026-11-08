@@ -13,7 +13,7 @@ import 'package:huntube_app/domain/models/file_data.dart';
 import 'package:huntube_app/presentation/theme/app_theme.dart';
 import 'package:huntube_app/presentation/widgets/progress_bar.dart';
 import 'package:huntube_app/presentation/widgets/texts.dart';
-import 'package:isar/isar.dart';
+import 'package:isar_community/isar.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -25,7 +25,7 @@ void main() {
             as Map<String, dynamic>;
     final packages = (config['packages'] as List).cast<Map<String, dynamic>>();
     final native = packages.singleWhere(
-      (package) => package['name'] == 'isar_flutter_libs',
+      (package) => package['name'] == 'isar_community_flutter_libs',
     );
     final root = packageConfigFile.uri.resolve(native['rootUri'] as String);
     final library = Platform.isMacOS
@@ -217,7 +217,7 @@ void main() {
           container: container,
           child: MaterialApp(
             theme: appTheme,
-            home: Scaffold(
+            home: const Scaffold(
               body: ProgressBar(
                 fileData: FileData(
                   id: 148,
