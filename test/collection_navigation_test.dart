@@ -57,7 +57,7 @@ void main() {
         tester
             .widgetList<H3AutosizeText>(find.byType(H3AutosizeText))
             .map((widget) => widget.text),
-        ['Herri', 'Gyűrű', 'Srekk', 'Karib'],
+        ['Herri', 'Gyűrű', 'Srekk', 'Karib', '2Pom'],
       );
       for (final episode in allEpisodes) {
         expect(find.text(episode.title), findsNothing);
@@ -71,6 +71,12 @@ void main() {
       await tester.pumpAndSettle();
     }
 
+    expectRoot();
+    await tapAndNavigate(find.byTooltip('Összes kedvenc'));
+    expect(router.current.name, FavouritesRoute.name);
+    expect(router.stack.length, 2);
+    expect(find.text('Még nincs kedvenced'), findsOneWidget);
+    await tapAndNavigate(find.byIcon(Icons.arrow_back));
     expectRoot();
     await tapAndNavigate(find.text('Herri'));
     expect(router.current.name, CollectionPartsRoute.name);

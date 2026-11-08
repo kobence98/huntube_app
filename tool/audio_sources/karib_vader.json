@@ -5,37 +5,37 @@
   "encoding": "MP3 192 kbps, 44100 Hz, original stereo; 5 ms fade-in, 12 ms fade-out",
   "clips": [
     {
-      "title": "A kaksi-tenger",
+      "title": "Kaksi-tenger",
       "asset": "karib_vader_kaksi_tenger",
       "start": 7.72,
       "end": 13.4
     },
     {
-      "title": "Hajók, emberek és emberhajók",
+      "title": "Emberhajók",
       "asset": "karib_vader_hajok_emberek_emberhajok",
       "start": 13.96,
       "end": 21.25
     },
     {
-      "title": "Fura egybeesés – hajó emberekkel?",
+      "title": "Fura egybeesés",
       "asset": "karib_vader_fura_egybeeses",
       "start": 22.82,
       "end": 29.05
     },
     {
-      "title": "Családunk legszexibb temploma",
+      "title": "Szexi templom",
       "asset": "karib_vader_legszexibb_templom",
       "start": 30.36,
       "end": 36.99
     },
     {
-      "title": "Ez itt a tolvaj – it’s me!",
+      "title": "A tolvaj",
       "asset": "karib_vader_ez_itt_a_tolvaj",
       "start": 37.9,
       "end": 41.48
     },
     {
-      "title": "Bridget Jones börtönébe",
+      "title": "Bridget Jones",
       "asset": "karib_vader_bridget_jones_bortone",
       "start": 41.52,
       "end": 44.94
@@ -53,7 +53,7 @@
       "end": 51.3
     },
     {
-      "title": "Több gőzt! Több gőzt!",
+      "title": "Dupla gőz",
       "asset": "karib_vader_tobb_gozt_duplan",
       "start": 67.26,
       "end": 70.85
@@ -71,7 +71,7 @@
       "end": 76.93
     },
     {
-      "title": "Beszartam – több gőzt!",
+      "title": "Beszartam, gőzt!",
       "asset": "karib_vader_beszartam_tobb_gozt",
       "start": 78.34,
       "end": 80.8
@@ -89,31 +89,31 @@
       "end": 80.8
     },
     {
-      "title": "Hallom, szeretnétek tőlem… – én inkább nem",
+      "title": "Hallom, szeretnétek…",
       "asset": "karib_vader_hallom_szeretnetek",
       "start": 83.51,
       "end": 89.05
     },
     {
-      "title": "Én inkább nem",
+      "title": "Inkább nem",
       "asset": "karib_vader_en_inkabb_nem",
       "start": 87.66,
       "end": 89.05
     },
     {
-      "title": "Bogi…",
+      "title": "Bogi",
       "asset": "karib_vader_bogi",
       "start": 91.61,
       "end": 94.03
     },
     {
-      "title": "Olyan megbántott az Alex",
+      "title": "Alex megbántott",
       "asset": "karib_vader_megbantott_az_alex",
       "start": 97.08,
       "end": 100.3
     },
     {
-      "title": "Vagy mit érzel?",
+      "title": "Mit érzel?",
       "asset": "karib_vader_vagy_mit_erzel",
       "start": 102.05,
       "end": 113.2
@@ -125,13 +125,13 @@
       "end": 120.42
     },
     {
-      "title": "Felhangzott a dal – eljött az idő",
+      "title": "Eljött az idő",
       "asset": "karib_vader_eljott_az_ido",
       "start": 120.43,
       "end": 125.53
     },
     {
-      "title": "Össze kell inni a kalózok tanácsát",
+      "title": "Össze kell inni",
       "asset": "karib_vader_ossze_kell_inni",
       "start": 126.15,
       "end": 129.7
@@ -143,31 +143,31 @@
       "end": 131.35
     },
     {
-      "title": "Követned kell a hívást – több gőzt!",
+      "title": "A hívás",
       "asset": "karib_vader_kovetned_kell_a_hivast",
       "start": 131.82,
       "end": 135.48
     },
     {
-      "title": "A világ kalózai mind összefosnak",
+      "title": "Összefosnak",
       "asset": "karib_vader_osszefosnak",
       "start": 136.4,
       "end": 144.96
     },
     {
-      "title": "Több gőzt! – dadogva",
+      "title": "Dadogó gőz",
       "asset": "karib_vader_tobb_gozt_dadogva",
       "start": 145.02,
       "end": 147.75
     },
     {
-      "title": "Gőzdíjat tűztek ki a fejünkre",
+      "title": "Gőzdíj",
       "asset": "karib_vader_gozdijat",
       "start": 148.7,
       "end": 151.35
     },
     {
-      "title": "Több gőzt! – mélyen",
+      "title": "Mély gőz",
       "asset": "karib_vader_tobb_gozt_melyen",
       "start": 157.06,
       "end": 158.94

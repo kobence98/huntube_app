@@ -15,7 +15,11 @@ import 'package:huntube_app/presentation/widgets/texts.dart';
 
 @RoutePage()
 class OnePartListScreen extends ConsumerStatefulWidget {
-  const OnePartListScreen({super.key, required this.partFiles, required this.easterEggActivated});
+  const OnePartListScreen({
+    super.key,
+    required this.partFiles,
+    required this.easterEggActivated,
+  });
 
   final PartFiles partFiles;
   final bool easterEggActivated;
@@ -26,16 +30,18 @@ class OnePartListScreen extends ConsumerStatefulWidget {
 
 class _OnePartListScreenState extends ConsumerState<OnePartListScreen> {
   @override
-  Widget build(
-    BuildContext context,
-  ) {
-    return ref.watch(cachedLikesProvider).when(
+  Widget build(BuildContext context) {
+    return ref
+        .watch(cachedLikesProvider)
+        .when(
           data: (likes) {
-            final isFavouritesFilterOn =
-                ref.watch(filterFavouritesNotifierProvider);
+            final isFavouritesFilterOn = ref.watch(
+              filterFavouritesNotifierProvider,
+            );
             final files = isFavouritesFilterOn
                 ? widget.partFiles.files.where(
-                    (file) => likes.map((like) => like.id).contains(file.id))
+                    (file) => likes.map((like) => like.id).contains(file.id),
+                  )
                 : widget.partFiles.files;
             return ProviderScope(
               child: SafeArea(
@@ -79,7 +85,7 @@ class _OnePartListScreenState extends ConsumerState<OnePartListScreen> {
                         shadowOffset: Offset(1, 2),
                         margin: UIConstants.paddingAll8,
                         onTap: () => _filterFavourites(isFavouritesFilterOn),
-                      )
+                      ),
                     ],
                   ),
                   body: Container(
@@ -89,6 +95,7 @@ class _OnePartListScreenState extends ConsumerState<OnePartListScreen> {
                       itemCount: files.length,
                       itemBuilder: (context, position) {
                         return ProgressBar(
+                          key: ValueKey(files.elementAt(position).id),
                           fileData: files.elementAt(position),
                           easterEggActivated: widget.easterEggActivated,
                         );
@@ -99,9 +106,8 @@ class _OnePartListScreenState extends ConsumerState<OnePartListScreen> {
               ),
             );
           },
-          error: (_, __) => ErrorPage(
-            onRetry: () => ref.invalidate(cachedLikesProvider),
-          ),
+          error: (_, __) =>
+              ErrorPage(onRetry: () => ref.invalidate(cachedLikesProvider)),
           loading: () => const ActivityIndicator(),
         );
   }

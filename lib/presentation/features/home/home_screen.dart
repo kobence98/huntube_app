@@ -54,6 +54,18 @@ class HomeScreen extends ConsumerWidget {
                     shadowColor: context.appColors.teal,
                     elevation: 10,
                     backgroundColor: context.appColors.blackStrong,
+                    actions: [
+                      IconButton(
+                        tooltip: 'Összes kedvenc',
+                        color: context.appColors.teal,
+                        icon: const Icon(Icons.favorite),
+                        onPressed: () => context.router.push(
+                          FavouritesRoute(
+                            easterEggActivated: easterEggActivated,
+                          ),
+                        ),
+                      ),
+                    ],
                     title: Center(
                       child: H3Text(
                         text: 'R.I.P TheJustMatthew',
@@ -75,7 +87,11 @@ class HomeScreen extends ConsumerWidget {
                       foregroundColor: context.appColors.navy,
                       shadowColor: context.appColors.teal,
                       width: double.infinity,
-                      height: 60,
+                      height: 64,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 16,
+                        vertical: 8,
+                      ),
                       child: Center(
                         child: H3AutosizeText(
                           text: PartCollection.values[position].title,

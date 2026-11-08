@@ -6,31 +6,31 @@
   "encoding": "MP3 192 kbps, 44100 Hz, original stereo; 5 ms fade-in, 12 ms fade-out",
   "clips": [
     {
-      "title": "Nem szokás csak úgy besétálni",
+      "title": "Besétálni?",
       "asset": "gyuru_szovetseg_1_nem_szokas_besetalni",
       "start": 0.0,
       "end": 3.02
     },
     {
-      "title": "Más lett a világ – érzem a vizeletben",
+      "title": "Vizeletben",
       "asset": "gyuru_szovetseg_1_mas_lett_a_vilag",
       "start": 3.4,
       "end": 10.52
     },
     {
-      "title": "Kovács Isildur apja",
+      "title": "Kovács Isildur",
       "asset": "gyuru_szovetseg_1_kovacs_isildur",
       "start": 10.53,
       "end": 16.45
     },
     {
-      "title": "A gyűrű Tündéhez került",
+      "title": "Tünde gyűrűje",
       "asset": "gyuru_szovetseg_1_a_gyuru_tundehez_kerult",
       "start": 16.48,
       "end": 20.82
     },
     {
-      "title": "Dugd csak meg a szerelmed",
+      "title": "A szerelmed",
       "asset": "gyuru_szovetseg_1_dugd_csak_meg_a_szerelmed",
       "start": 25.29,
       "end": 34.7
@@ -42,19 +42,19 @@
       "end": 44.4
     },
     {
-      "title": "A hobbitok hős harcosok",
+      "title": "Hős hobbitok",
       "asset": "gyuru_szovetseg_1_hos_harcos_hobbitok",
       "start": 49.1,
       "end": 60.15
     },
     {
-      "title": "Mi az Istent csinálsz, hülye gyerek?",
+      "title": "Hülye gyerek!",
       "asset": "gyuru_szovetseg_1_hulye_gyerek",
       "start": 61.66,
       "end": 66.63
     },
     {
-      "title": "Serfőzés és fűszívás",
+      "title": "Fűszívás",
       "asset": "gyuru_szovetseg_1_serfozes_es_fuszivas",
       "start": 66.64,
       "end": 72.9
@@ -66,49 +66,49 @@
       "end": 142.65
     },
     {
-      "title": "Egy mágus sosem késik – ezt hallja a tanárom is",
+      "title": "Sosem késik",
       "asset": "gyuru_szovetseg_1_egy_magus_sosem_kesik",
       "start": 146.02,
       "end": 156.83
     },
     {
-      "title": "De örülök, hogy látlak, Gandalf! – hagyjál már",
+      "title": "Látlak, Gandalf!",
       "asset": "gyuru_szovetseg_1_orulok_hogy_latlak_gandalf",
       "start": 156.84,
       "end": 167.0
     },
     {
-      "title": "Hagyjál már a gecibe!",
+      "title": "Hagyjál már!",
       "asset": "gyuru_szovetseg_1_hagyjal_mar",
       "start": 165.39,
       "end": 167.0
     },
     {
-      "title": "A fél megye – a másik fele magától is eljön",
+      "title": "Fél megye",
       "asset": "gyuru_szovetseg_1_a_fel_megye",
       "start": 172.41,
       "end": 183.3
     },
     {
-      "title": "Tudom, hogy közöd van hozzá – szó sincs róla",
+      "title": "Titkolózz csak",
       "asset": "gyuru_szovetseg_1_titkolozz_csak",
       "start": 184.72,
       "end": 191.19
     },
     {
-      "title": "Míg te nem jöttél, mi krákosok remekül megvoltunk",
+      "title": "Mi krákosok",
       "asset": "gyuru_szovetseg_1_mig_te_nem_jottel",
       "start": 191.43,
       "end": 199.51
     },
     {
-      "title": "Gandalf keres magának egy másik hobbitot",
+      "title": "Másik hobbit",
       "asset": "gyuru_szovetseg_1_egy_masik_hobbit",
       "start": 220.55,
       "end": 227.21
     },
     {
-      "title": "Nem, köszönjük! – Gandalf és Bilbó az ajtónál",
+      "title": "Bilbó ajtaja",
       "asset": "gyuru_szovetseg_1_gandalf_bilbo_ajtos_beszelgetes",
       "start": 229.55,
       "end": 243.48
@@ -120,7 +120,7 @@
       "end": 231.0
     },
     {
-      "title": "Ki hinné, hogy 111 éves lettél? – én elhiszem",
+      "title": "111 éves",
       "asset": "gyuru_szovetseg_1_szaztizenegy_eves",
       "start": 243.5,
       "end": 247.96
@@ -132,7 +132,7 @@
       "end": 253.74
     },
     {
-      "title": "Köszönöm, hogy megtaláltad",
+      "title": "Megtaláltad!",
       "asset": "gyuru_szovetseg_1_koszonom_hogy_megtalaltad",
       "start": 256.89,
       "end": 261.41
@@ -144,67 +144,67 @@
       "end": 301.81
     },
     {
-      "title": "A te ötleted volt!",
+      "title": "Te ötleted!",
       "asset": "gyuru_szovetseg_1_a_te_otleted_volt",
       "start": 314.88,
       "end": 318.34
     },
     {
-      "title": "Én meg nagyon rendes",
+      "title": "Nagyon rendes",
       "asset": "gyuru_szovetseg_1_nagyon_rendes",
       "start": 331.31,
       "end": 337.14
     },
     {
-      "title": "Nem szívjóságból fogadtalak be",
+      "title": "Nem szívjóságból",
       "asset": "gyuru_szovetseg_1_nem_szivjosagbol",
       "start": 337.81,
       "end": 342.59
     },
     {
-      "title": "Jártál már a házi serfőzdében? – nem ez a lényeg",
+      "title": "Házi serfőzde",
       "asset": "gyuru_szovetseg_1_hazi_serfozde",
       "start": 346.9,
       "end": 355.53
     },
     {
-      "title": "Illetve igen, de most nem ez a lényeg",
+      "title": "Illetve igen",
       "asset": "gyuru_szovetseg_1_illetve_igen",
       "start": 350.75,
       "end": 353.57
     },
     {
-      "title": "Bilbó születésnapi beszéde",
+      "title": "Szülinapi beszéd",
       "asset": "gyuru_szovetseg_1_szulinapi_beszed",
       "start": 362.34,
       "end": 379.69
     },
     {
-      "title": "A felét se szeretem feleannyira",
+      "title": "Felét se",
       "asset": "gyuru_szovetseg_1_a_felet_se_szeretem",
       "start": 375.64,
       "end": 379.69
     },
     {
-      "title": "Ezennel elbúcsúzom – ég veletek",
+      "title": "Ég veletek",
       "asset": "gyuru_szovetseg_1_eg_veletek",
       "start": 384.29,
       "end": 389.1
     },
     {
-      "title": "Látsz rajta valamit? – nincs rajta semmi",
+      "title": "Semmi sincs",
       "asset": "gyuru_szovetseg_1_latsz_rajta_valamit",
       "start": 402.0,
       "end": 420.49
     },
     {
-      "title": "Mi történt, Gandalf?",
+      "title": "Mi történt?",
       "asset": "gyuru_szovetseg_1_mi_tortent_gandalf",
       "start": 421.42,
       "end": 435.27
     },
     {
-      "title": "Mordorba nem szokás csak úgy besétálni",
+      "title": "Mordor",
       "asset": "gyuru_szovetseg_1_mordor_monolog",
       "start": 440.51,
       "end": 457.3
@@ -216,7 +216,7 @@
       "end": 480.7
     },
     {
-      "title": "Szerencsétek, hobbitok, hogy a hobbitok a hobbitok",
+      "title": "Hobbitok",
       "asset": "gyuru_szovetseg_1_szerencsetek_hobbitok",
       "start": 483.41,
       "end": 486.85

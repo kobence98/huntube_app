@@ -83,7 +83,7 @@ class CollectionPartsScreen extends StatelessWidget {
                       foregroundColor: context.appColors.navy,
                       shadowColor: context.appColors.teal,
                       width: double.infinity,
-                      height: 60,
+                      height: 72,
                       onTap: () => context.router.push(
                         OnePartListRoute(
                           partFiles: part,
@@ -92,7 +92,10 @@ class CollectionPartsScreen extends StatelessWidget {
                       ),
                       child: Center(
                         child: Padding(
-                          padding: UIConstants.paddingHorizontal16,
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 16,
+                            vertical: 8,
+                          ),
                           child: H3AutosizeText(
                             text: part.title,
                             color: context.appColors.whiteStrong,

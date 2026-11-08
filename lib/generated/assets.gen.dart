@@ -604,6 +604,142 @@ class $AssetsAudiosGen {
   /// File path: assets/audios/peersze.mp3
   String get peersze => 'assets/audios/peersze.mp3';
 
+  /// File path: assets/audios/pom_torzonborz_a_kigyo.mp3
+  String get pomTorzonborzAKigyo => 'assets/audios/pom_torzonborz_a_kigyo.mp3';
+
+  /// File path: assets/audios/pom_torzonborz_abortusz.mp3
+  String get pomTorzonborzAbortusz =>
+      'assets/audios/pom_torzonborz_abortusz.mp3';
+
+  /// File path: assets/audios/pom_torzonborz_anyad.mp3
+  String get pomTorzonborzAnyad => 'assets/audios/pom_torzonborz_anyad.mp3';
+
+  /// File path: assets/audios/pom_torzonborz_atugrom.mp3
+  String get pomTorzonborzAtugrom => 'assets/audios/pom_torzonborz_atugrom.mp3';
+
+  /// File path: assets/audios/pom_torzonborz_bosszu.mp3
+  String get pomTorzonborzBosszu => 'assets/audios/pom_torzonborz_bosszu.mp3';
+
+  /// File path: assets/audios/pom_torzonborz_csak_artur.mp3
+  String get pomTorzonborzCsakArtur =>
+      'assets/audios/pom_torzonborz_csak_artur.mp3';
+
+  /// File path: assets/audios/pom_torzonborz_csak_megtalaljam.mp3
+  String get pomTorzonborzCsakMegtalaljam =>
+      'assets/audios/pom_torzonborz_csak_megtalaljam.mp3';
+
+  /// File path: assets/audios/pom_torzonborz_csokifasz.mp3
+  String get pomTorzonborzCsokifasz =>
+      'assets/audios/pom_torzonborz_csokifasz.mp3';
+
+  /// File path: assets/audios/pom_torzonborz_csokoladera.mp3
+  String get pomTorzonborzCsokoladera =>
+      'assets/audios/pom_torzonborz_csokoladera.mp3';
+
+  /// File path: assets/audios/pom_torzonborz_egy_fityingem.mp3
+  String get pomTorzonborzEgyFityingem =>
+      'assets/audios/pom_torzonborz_egy_fityingem.mp3';
+
+  /// File path: assets/audios/pom_torzonborz_elkesunk.mp3
+  String get pomTorzonborzElkesunk =>
+      'assets/audios/pom_torzonborz_elkesunk.mp3';
+
+  /// File path: assets/audios/pom_torzonborz_engem_kerestek.mp3
+  String get pomTorzonborzEngemKerestek =>
+      'assets/audios/pom_torzonborz_engem_kerestek.mp3';
+
+  /// File path: assets/audios/pom_torzonborz_erre_jon.mp3
+  String get pomTorzonborzErreJon =>
+      'assets/audios/pom_torzonborz_erre_jon.mp3';
+
+  /// File path: assets/audios/pom_torzonborz_faszvero.mp3
+  String get pomTorzonborzFaszvero =>
+      'assets/audios/pom_torzonborz_faszvero.mp3';
+
+  /// File path: assets/audios/pom_torzonborz_feloldalt.mp3
+  String get pomTorzonborzFeloldalt =>
+      'assets/audios/pom_torzonborz_feloldalt.mp3';
+
+  /// File path: assets/audios/pom_torzonborz_fonyeremeny.mp3
+  String get pomTorzonborzFonyeremeny =>
+      'assets/audios/pom_torzonborz_fonyeremeny.mp3';
+
+  /// File path: assets/audios/pom_torzonborz_hat_nem.mp3
+  String get pomTorzonborzHatNem => 'assets/audios/pom_torzonborz_hat_nem.mp3';
+
+  /// File path: assets/audios/pom_torzonborz_hello_darkness.mp3
+  String get pomTorzonborzHelloDarkness =>
+      'assets/audios/pom_torzonborz_hello_darkness.mp3';
+
+  /// File path: assets/audios/pom_torzonborz_hol_ilyen.mp3
+  String get pomTorzonborzHolIlyen =>
+      'assets/audios/pom_torzonborz_hol_ilyen.mp3';
+
+  /// File path: assets/audios/pom_torzonborz_hol_van.mp3
+  String get pomTorzonborzHolVan => 'assets/audios/pom_torzonborz_hol_van.mp3';
+
+  /// File path: assets/audios/pom_torzonborz_hova_rohansz.mp3
+  String get pomTorzonborzHovaRohansz =>
+      'assets/audios/pom_torzonborz_hova_rohansz.mp3';
+
+  /// File path: assets/audios/pom_torzonborz_huhogo_dugo.mp3
+  String get pomTorzonborzHuhogoDugo =>
+      'assets/audios/pom_torzonborz_huhogo_dugo.mp3';
+
+  /// File path: assets/audios/pom_torzonborz_itt_nincsen.mp3
+  String get pomTorzonborzIttNincsen =>
+      'assets/audios/pom_torzonborz_itt_nincsen.mp3';
+
+  /// File path: assets/audios/pom_torzonborz_meg_hallotok.mp3
+  String get pomTorzonborzMegHallotok =>
+      'assets/audios/pom_torzonborz_meg_hallotok.mp3';
+
+  /// File path: assets/audios/pom_torzonborz_meglepetes.mp3
+  String get pomTorzonborzMeglepetes =>
+      'assets/audios/pom_torzonborz_meglepetes.mp3';
+
+  /// File path: assets/audios/pom_torzonborz_mindet_osszefosom.mp3
+  String get pomTorzonborzMindetOsszefosom =>
+      'assets/audios/pom_torzonborz_mindet_osszefosom.mp3';
+
+  /// File path: assets/audios/pom_torzonborz_mindjart_elmeselem.mp3
+  String get pomTorzonborzMindjartElmeselem =>
+      'assets/audios/pom_torzonborz_mindjart_elmeselem.mp3';
+
+  /// File path: assets/audios/pom_torzonborz_nagyobb_faszkalap.mp3
+  String get pomTorzonborzNagyobbFaszkalap =>
+      'assets/audios/pom_torzonborz_nagyobb_faszkalap.mp3';
+
+  /// File path: assets/audios/pom_torzonborz_nezd_csampas.mp3
+  String get pomTorzonborzNezdCsampas =>
+      'assets/audios/pom_torzonborz_nezd_csampas.mp3';
+
+  /// File path: assets/audios/pom_torzonborz_rollin.mp3
+  String get pomTorzonborzRollin => 'assets/audios/pom_torzonborz_rollin.mp3';
+
+  /// File path: assets/audios/pom_torzonborz_szarhoz_hasonlitok.mp3
+  String get pomTorzonborzSzarhozHasonlitok =>
+      'assets/audios/pom_torzonborz_szarhoz_hasonlitok.mp3';
+
+  /// File path: assets/audios/pom_torzonborz_szep_loves.mp3
+  String get pomTorzonborzSzepLoves =>
+      'assets/audios/pom_torzonborz_szep_loves.mp3';
+
+  /// File path: assets/audios/pom_torzonborz_szia_faszkalap.mp3
+  String get pomTorzonborzSziaFaszkalap =>
+      'assets/audios/pom_torzonborz_szia_faszkalap.mp3';
+
+  /// File path: assets/audios/pom_torzonborz_teherbe_esett.mp3
+  String get pomTorzonborzTeherbeEsett =>
+      'assets/audios/pom_torzonborz_teherbe_esett.mp3';
+
+  /// File path: assets/audios/pom_torzonborz_tessek.mp3
+  String get pomTorzonborzTessek => 'assets/audios/pom_torzonborz_tessek.mp3';
+
+  /// File path: assets/audios/pom_torzonborz_torzonborz_faszvero.mp3
+  String get pomTorzonborzTorzonborzFaszvero =>
+      'assets/audios/pom_torzonborz_torzonborz_faszvero.mp3';
+
   /// File path: assets/audios/potternek_nincs_valasztasa.mp3
   String get potternekNincsValasztasa =>
       'assets/audios/potternek_nincs_valasztasa.mp3';
@@ -905,6 +1041,42 @@ class $AssetsAudiosGen {
         oraUtottel,
         orokSzosz,
         peersze,
+        pomTorzonborzAKigyo,
+        pomTorzonborzAbortusz,
+        pomTorzonborzAnyad,
+        pomTorzonborzAtugrom,
+        pomTorzonborzBosszu,
+        pomTorzonborzCsakArtur,
+        pomTorzonborzCsakMegtalaljam,
+        pomTorzonborzCsokifasz,
+        pomTorzonborzCsokoladera,
+        pomTorzonborzEgyFityingem,
+        pomTorzonborzElkesunk,
+        pomTorzonborzEngemKerestek,
+        pomTorzonborzErreJon,
+        pomTorzonborzFaszvero,
+        pomTorzonborzFeloldalt,
+        pomTorzonborzFonyeremeny,
+        pomTorzonborzHatNem,
+        pomTorzonborzHelloDarkness,
+        pomTorzonborzHolIlyen,
+        pomTorzonborzHolVan,
+        pomTorzonborzHovaRohansz,
+        pomTorzonborzHuhogoDugo,
+        pomTorzonborzIttNincsen,
+        pomTorzonborzMegHallotok,
+        pomTorzonborzMeglepetes,
+        pomTorzonborzMindetOsszefosom,
+        pomTorzonborzMindjartElmeselem,
+        pomTorzonborzNagyobbFaszkalap,
+        pomTorzonborzNezdCsampas,
+        pomTorzonborzRollin,
+        pomTorzonborzSzarhozHasonlitok,
+        pomTorzonborzSzepLoves,
+        pomTorzonborzSziaFaszkalap,
+        pomTorzonborzTeherbeEsett,
+        pomTorzonborzTessek,
+        pomTorzonborzTorzonborzFaszvero,
         potternekNincsValasztasa,
         ppppp,
         remelemMindenRossz,

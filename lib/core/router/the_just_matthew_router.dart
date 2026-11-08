@@ -7,6 +7,7 @@ class TheJustMatthewRouter extends $TheJustMatthewRouter {
   List<AutoRoute> get routes => [
     AutoRoute(page: HomeRoute.page, initial: true),
     AutoRoute(page: CollectionPartsRoute.page),
+    AutoRoute(page: FavouritesRoute.page),
     AutoRoute(page: OnePartListRoute.page),
   ];
 }

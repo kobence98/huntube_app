@@ -305,136 +305,211 @@ voldemort
 /start/
 A csillag végén
 /collection/karib
-A kaksi-tenger
+Kaksi-tenger
 karib_vader_kaksi_tenger
-Hajók, emberek és emberhajók
+Emberhajók
 karib_vader_hajok_emberek_emberhajok
-Fura egybeesés – hajó emberekkel?
+Fura egybeesés
 karib_vader_fura_egybeeses
-Családunk legszexibb temploma
+Szexi templom
 karib_vader_legszexibb_templom
-Ez itt a tolvaj – it’s me!
+A tolvaj
 karib_vader_ez_itt_a_tolvaj
-Bridget Jones börtönébe
+Bridget Jones
 karib_vader_bridget_jones_bortone
 Miért? Anyádért!
 karib_vader_miert_anyadert
 Anyádért!
 karib_vader_anyadert
-Több gőzt! Több gőzt!
+Dupla gőz
 karib_vader_tobb_gozt_duplan
 Farbabaszó kapitány
 karib_vader_kapitany
 Isten hozott!
 karib_vader_isten_hozott
-Beszartam – több gőzt!
+Beszartam, gőzt!
 karib_vader_beszartam_tobb_gozt
 Beszartam
 karib_vader_beszartam
 Több gőzt!
 karib_vader_tobb_gozt
-Hallom, szeretnétek tőlem… – én inkább nem
+Hallom, szeretnétek…
 karib_vader_hallom_szeretnetek
-Én inkább nem
+Inkább nem
 karib_vader_en_inkabb_nem
-Bogi…
+Bogi
 karib_vader_bogi
-Olyan megbántott az Alex
+Alex megbántott
 karib_vader_megbantott_az_alex
-Vagy mit érzel?
+Mit érzel?
 karib_vader_vagy_mit_erzel
 Kalózdal
 karib_vader_kalozdal
-Felhangzott a dal – eljött az idő
+Eljött az idő
 karib_vader_eljott_az_ido
-Össze kell inni a kalózok tanácsát
+Össze kell inni
 karib_vader_ossze_kell_inni
 Ki ki vagy?
 karib_vader_ki_ki_vagy
-Követned kell a hívást – több gőzt!
+A hívás
 karib_vader_kovetned_kell_a_hivast
-A világ kalózai mind összefosnak
+Összefosnak
 karib_vader_osszefosnak
-Több gőzt! – dadogva
+Dadogó gőz
 karib_vader_tobb_gozt_dadogva
-Gőzdíjat tűztek ki a fejünkre
+Gőzdíj
 karib_vader_gozdijat
-Több gőzt! – mélyen
+Mély gőz
 karib_vader_tobb_gozt_melyen
 Gyere! Kérlek!
 karib_vader_gyere_kerlek
 /start/
 A Gyűrű Szövetsége part 1
 /collection/gyuru
-Nem szokás csak úgy besétálni
+Besétálni?
 gyuru_szovetseg_1_nem_szokas_besetalni
-Más lett a világ – érzem a vizeletben
+Vizeletben
 gyuru_szovetseg_1_mas_lett_a_vilag
-Kovács Isildur apja
+Kovács Isildur
 gyuru_szovetseg_1_kovacs_isildur
-A gyűrű Tündéhez került
+Tünde gyűrűje
 gyuru_szovetseg_1_a_gyuru_tundehez_kerult
-Dugd csak meg a szerelmed
+A szerelmed
 gyuru_szovetseg_1_dugd_csak_meg_a_szerelmed
 Na, megvan!
 gyuru_szovetseg_1_na_megvan
-A hobbitok hős harcosok
+Hős hobbitok
 gyuru_szovetseg_1_hos_harcos_hobbitok
-Mi az Istent csinálsz, hülye gyerek?
+Hülye gyerek!
 gyuru_szovetseg_1_hulye_gyerek
-Serfőzés és fűszívás
+Fűszívás
 gyuru_szovetseg_1_serfozes_es_fuszivas
 Frodó sosem késik
 gyuru_szovetseg_1_frodo_sosem_kesik
-Egy mágus sosem késik – ezt hallja a tanárom is
+Sosem késik
 gyuru_szovetseg_1_egy_magus_sosem_kesik
-De örülök, hogy látlak, Gandalf! – hagyjál már
+Látlak, Gandalf!
 gyuru_szovetseg_1_orulok_hogy_latlak_gandalf
-Hagyjál már a gecibe!
+Hagyjál már!
 gyuru_szovetseg_1_hagyjal_mar
-A fél megye – a másik fele magától is eljön
+Fél megye
 gyuru_szovetseg_1_a_fel_megye
-Tudom, hogy közöd van hozzá – szó sincs róla
+Titkolózz csak
 gyuru_szovetseg_1_titkolozz_csak
-Míg te nem jöttél, mi krákosok remekül megvoltunk
+Mi krákosok
 gyuru_szovetseg_1_mig_te_nem_jottel
-Gandalf keres magának egy másik hobbitot
+Másik hobbit
 gyuru_szovetseg_1_egy_masik_hobbit
-Nem, köszönjük! – Gandalf és Bilbó az ajtónál
+Bilbó ajtaja
 gyuru_szovetseg_1_gandalf_bilbo_ajtos_beszelgetes
 Nem, köszönjük!
 gyuru_szovetseg_1_nem_koszonjuk
-Ki hinné, hogy 111 éves lettél? – én elhiszem
+111 éves
 gyuru_szovetseg_1_szaztizenegy_eves
 Fuck off!
 gyuru_szovetseg_1_fuck_off
-Köszönöm, hogy megtaláltad
+Megtaláltad!
 gyuru_szovetseg_1_koszonom_hogy_megtalaltad
 Aranyeső
 gyuru_szovetseg_1_aranyeso
-A te ötleted volt!
+Te ötleted!
 gyuru_szovetseg_1_a_te_otleted_volt
-Én meg nagyon rendes
+Nagyon rendes
 gyuru_szovetseg_1_nagyon_rendes
-Nem szívjóságból fogadtalak be
+Nem szívjóságból
 gyuru_szovetseg_1_nem_szivjosagbol
-Jártál már a házi serfőzdében? – nem ez a lényeg
+Házi serfőzde
 gyuru_szovetseg_1_hazi_serfozde
-Illetve igen, de most nem ez a lényeg
+Illetve igen
 gyuru_szovetseg_1_illetve_igen
-Bilbó születésnapi beszéde
+Szülinapi beszéd
 gyuru_szovetseg_1_szulinapi_beszed
-A felét se szeretem feleannyira
+Felét se
 gyuru_szovetseg_1_a_felet_se_szeretem
-Ezennel elbúcsúzom – ég veletek
+Ég veletek
 gyuru_szovetseg_1_eg_veletek
-Látsz rajta valamit? – nincs rajta semmi
+Semmi sincs
 gyuru_szovetseg_1_latsz_rajta_valamit
-Mi történt, Gandalf?
+Mi történt?
 gyuru_szovetseg_1_mi_tortent_gandalf
-Mordorba nem szokás csak úgy besétálni
+Mordor
 gyuru_szovetseg_1_mordor_monolog
 Come to Mordor!
 gyuru_szovetseg_1_come_to_mordor
-Szerencsétek, hobbitok, hogy a hobbitok a hobbitok
+Hobbitok
 gyuru_szovetseg_1_szerencsetek_hobbitok
+/start/
+Torzonborz faszverő
+/collection/pom
+Hova rohansz?
+pom_torzonborz_hova_rohansz
+Anyád!
+pom_torzonborz_anyad
+Hát… nem.
+pom_torzonborz_hat_nem
+Torzonborz faszverő
+pom_torzonborz_torzonborz_faszvero
+Hello darkness
+pom_torzonborz_hello_darkness
+Hol ilyen
+pom_torzonborz_hol_ilyen
+Szarhoz hasonlítok
+pom_torzonborz_szarhoz_hasonlitok
+Szia, faszkalap!
+pom_torzonborz_szia_faszkalap
+Féloldalt
+pom_torzonborz_feloldalt
+Egy fityingem
+pom_torzonborz_egy_fityingem
+Rollin’
+pom_torzonborz_rollin
+Nagyobb faszkalap
+pom_torzonborz_nagyobb_faszkalap
+Átugrom
+pom_torzonborz_atugrom
+Nézd, csámpás!
+pom_torzonborz_nezd_csampas
+Mindet összefosom
+pom_torzonborz_mindet_osszefosom
+Még hallotok
+pom_torzonborz_meg_hallotok
+Bosszú
+pom_torzonborz_bosszu
+Erre jön!
+pom_torzonborz_erre_jon
+Itt nincsen
+pom_torzonborz_itt_nincsen
+A kígyó
+pom_torzonborz_a_kigyo
+Faszverő
+pom_torzonborz_faszvero
+Csokoládéra!
+pom_torzonborz_csokoladera
+Mindjárt elmesélem
+pom_torzonborz_mindjart_elmeselem
+Főnyeremény
+pom_torzonborz_fonyeremeny
+Szép lövés
+pom_torzonborz_szep_loves
+Csokifasz
+pom_torzonborz_csokifasz
+Abortusz
+pom_torzonborz_abortusz
+Meglepetés
+pom_torzonborz_meglepetes
+Hol van?
+pom_torzonborz_hol_van
+Tessék!
+pom_torzonborz_tessek
+Engem kerestek?
+pom_torzonborz_engem_kerestek
+Teherbe esett
+pom_torzonborz_teherbe_esett
+Csak Artúr
+pom_torzonborz_csak_artur
+Csak megtaláljam
+pom_torzonborz_csak_megtalaljam
+Huhogó dugó
+pom_torzonborz_huhogo_dugo
+Elkésünk!
+pom_torzonborz_elkesunk

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -16,216 +18,403 @@ import 'package:huntube_app/presentation/widgets/error_page.dart';
 import 'package:huntube_app/presentation/widgets/texts.dart';
 
 class ProgressBar extends ConsumerStatefulWidget {
-  final FileData fileData;
-  final bool easterEggActivated;
-
   const ProgressBar({
-    Key? key,
+    super.key,
     required this.fileData,
     required this.easterEggActivated,
-  }) : super(key: key);
+  });
+
+  final FileData fileData;
+  final bool easterEggActivated;
 
   @override
   ConsumerState<ProgressBar> createState() => _ProgressBarState();
 }
 
 class _ProgressBarState extends ConsumerState<ProgressBar>
-    with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-  late AudioPlayer _player;
+    with TickerProviderStateMixin {
+  late final AnimationController _controller;
+  late final AnimationController _likeController;
+  late final Animation<double> _heartScale;
+  late final Animation<double> _heartRise;
+  late final Animation<double> _heartOpacity;
+  late final AudioPlayer _player;
+  late final StreamSubscription<void> _completionSubscription;
+  var _playbackRequest = 0;
+  var _isPlaying = false;
 
   @override
   void initState() {
-    _controller = AnimationController(
+    super.initState();
+    _controller = AnimationController(vsync: this);
+    _likeController = AnimationController(
       vsync: this,
+      duration: const Duration(milliseconds: 650),
     );
-
-    _controller.addStatusListener((status) {
-      if (status == AnimationStatus.completed) {
-        Future.delayed(Duration(milliseconds: 100), () {
-          if (mounted) {
-            _controller.reset();
-            ref.read(progressBarNotifierProvider.notifier).reset();
-          }
-        });
+    _heartScale = TweenSequence<double>([
+      TweenSequenceItem(tween: Tween(begin: 0.6, end: 1.2), weight: 35),
+      TweenSequenceItem(tween: Tween(begin: 1.2, end: 1), weight: 65),
+    ]).animate(_likeController);
+    _heartRise = Tween(
+      begin: 4.0,
+      end: -18.0,
+    ).chain(CurveTween(curve: Curves.easeOutCubic)).animate(_likeController);
+    _heartOpacity = TweenSequence<double>([
+      TweenSequenceItem(tween: Tween(begin: 0, end: 1), weight: 15),
+      TweenSequenceItem(tween: Tween(begin: 1, end: 0), weight: 85),
+    ]).animate(_likeController);
+    _player = AudioPlayer();
+    unawaited(_player.setReleaseMode(ReleaseMode.stop));
+    _completionSubscription = _player.onPlayerComplete.listen((_) {
+      if (!mounted) return;
+      _controller.reset();
+      setState(() => _isPlaying = false);
+      if (ref.read(progressBarNotifierProvider) == widget.fileData.id) {
+        ref.read(progressBarNotifierProvider.notifier).reset();
       }
     });
+  }
 
-    _player = AudioPlayer();
-    _player.setReleaseMode(ReleaseMode.stop);
-
-    super.initState();
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (MediaQuery.disableAnimationsOf(context)) {
+      _controller.reset();
+      _likeController.reset();
+    }
   }
 
   @override
   void dispose() {
+    _playbackRequest++;
+    unawaited(_completionSubscription.cancel());
     _controller.dispose();
-    _player.dispose();
+    _likeController.dispose();
+    unawaited(_player.dispose());
     super.dispose();
   }
 
   Future<void> _playAudio() async {
+    final request = ++_playbackRequest;
     ref
         .read(progressBarNotifierProvider.notifier)
         .setActiveBar(widget.fileData.id);
-    String audioPath = Assets.audios.values
-        .firstWhere((title) =>
-            title.replaceAll('assets/audios/', '').replaceAll('.mp3', '') ==
-            widget.fileData.assetName)
-        .replaceAll('assets/', '');
+    final audioPath = Assets.audios.values
+        .firstWhere(
+          (path) => path == 'assets/audios/${widget.fileData.assetName}.mp3',
+        )
+        .replaceFirst('assets/', '');
     await _player.setSource(AssetSource(audioPath));
+    if (!mounted || request != _playbackRequest) return;
+    final duration = await _player.getDuration();
+    if (!mounted || request != _playbackRequest) return;
+    if (!widget.easterEggActivated &&
+        ref.read(progressBarNotifierProvider) != widget.fileData.id) {
+      return;
+    }
+    await _player.play(_player.source!);
+    if (!mounted || request != _playbackRequest) return;
+    setState(() => _isPlaying = true);
+    if (duration != null &&
+        duration > Duration.zero &&
+        !MediaQuery.disableAnimationsOf(context)) {
+      _controller.duration = duration;
+      _controller.forward(from: 0);
+    }
+  }
 
-    Duration? audioDuration = await _player.getDuration();
-    if (audioDuration != null) {
-      _controller.duration = audioDuration;
+  Future<void> _stopAudio({bool clearActive = true}) async {
+    _playbackRequest++;
+    _controller.reset();
+    if (mounted) {
+      setState(() => _isPlaying = false);
+      if (clearActive &&
+          ref.read(progressBarNotifierProvider) == widget.fileData.id) {
+        ref.read(progressBarNotifierProvider.notifier).reset();
+      }
+    }
+    try {
+      await _player.stop();
+    } catch (_) {
+      if (mounted) {
+        context.showSnackBar(text: 'Nem sikerült leállítani a hangot.');
+      }
+    }
+  }
 
-      await _player.play(_player.source!);
-      _controller.forward();
+  Future<void> _onTap() async {
+    ref
+        .read(buttonPushNotifierProvider.notifier)
+        .buttonDown(widget.fileData.id);
+    unawaited(
+      Future<void>.delayed(const Duration(milliseconds: 150), () {
+        if (mounted) {
+          ref
+              .read(buttonPushNotifierProvider.notifier)
+              .buttonUp(widget.fileData.id);
+        }
+      }),
+    );
+    try {
+      if (_isPlaying && !widget.easterEggActivated) {
+        await _stopAudio();
+      } else {
+        await _playAudio();
+      }
+    } catch (_) {
+      if (!mounted) return;
+      _controller.reset();
+      setState(() => _isPlaying = false);
+      if (ref.read(progressBarNotifierProvider) == widget.fileData.id) {
+        ref.read(progressBarNotifierProvider.notifier).reset();
+      }
+      context.showSnackBar(text: 'Nem sikerült lejátszani a hangot.');
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return ref.watch(cachedLikesProvider).when(
+    ref.listen(progressBarNotifierProvider, (_, activeId) {
+      if (activeId != null &&
+          activeId != widget.fileData.id &&
+          !widget.easterEggActivated) {
+        unawaited(_stopAudio(clearActive: false));
+      }
+    });
+    ref.listen(cachedLikesProvider, (previous, next) {
+      final wasLiked = previous?.valueOrNull?.any(
+        (like) => like.id == widget.fileData.id,
+      );
+      final isLiked = next.valueOrNull?.any(
+        (like) => like.id == widget.fileData.id,
+      );
+      if (wasLiked == false && isLiked == true) {
+        if (!MediaQuery.disableAnimationsOf(context)) {
+          _likeController.forward(from: 0);
+        }
+      } else if (isLiked == false) {
+        _likeController.reset();
+      }
+    });
+    return ref
+        .watch(cachedLikesProvider)
+        .when(
           data: (likes) {
-            final activeBarId = ref.watch(progressBarNotifierProvider);
-            final pushedDownButtonId = ref.watch(buttonPushNotifierProvider);
-            final buttonPushedDown = pushedDownButtonId != null &&
-                pushedDownButtonId == widget.fileData.id;
-
-            if (activeBarId != null && activeBarId != widget.fileData.id && !widget.easterEggActivated) {
-              _controller.reset();
-              _player.stop();
-            }
-
-            final liked =
-                likes.map((like) => like.id).contains(widget.fileData.id);
+            final liked = likes.any((like) => like.id == widget.fileData.id);
+            final pushedDown =
+                ref.watch(buttonPushNotifierProvider) == widget.fileData.id;
+            final reduceMotion = MediaQuery.disableAnimationsOf(context);
             return Padding(
               padding: EdgeInsets.only(
-                bottom: buttonPushedDown ? 5 : 8,
-                top: buttonPushedDown ? 11 : 8,
-                right: buttonPushedDown ? 13 : 16,
-                left: buttonPushedDown ? 19 : 16,
+                bottom: pushedDown ? 5 : 8,
+                top: pushedDown ? 11 : 8,
+                right: pushedDown ? 13 : 16,
+                left: pushedDown ? 19 : 16,
               ),
               child: Dismissible(
-                dismissThresholds: {DismissDirection.vertical: 20},
+                key: ValueKey('sound-swipe-${widget.fileData.id}'),
+                direction: DismissDirection.horizontal,
+                dismissThresholds: const {
+                  DismissDirection.startToEnd: 0.3,
+                  DismissDirection.endToStart: 0.3,
+                },
                 confirmDismiss: (direction) async {
-                  direction == DismissDirection.startToEnd
-                      ? _like(widget.fileData)
-                      : _removeLike(widget.fileData.id);
+                  try {
+                    if (direction == DismissDirection.startToEnd && !liked) {
+                      await _like(widget.fileData);
+                    } else if (direction == DismissDirection.endToStart &&
+                        liked) {
+                      await _removeLike(widget.fileData.id);
+                    }
+                  } catch (_) {
+                    if (context.mounted) {
+                      context.showSnackBar(
+                        text: 'Nem sikerült menteni a kedvencet.',
+                      );
+                    }
+                  }
                   return false;
                 },
-                direction: DismissDirection.horizontal,
-                background: Container(
-                  height: 60,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        context.appColors.teal,
-                        context.appColors.blackStrong
-                      ],
-                    ),
-                    borderRadius: UIConstants.radiusAll16,
-                  ),
-                  child: liked
-                      ? Align(
-                          alignment: Alignment.centerRight,
-                          child: Padding(
-                            padding: EdgeInsets.only(right: 16),
-                            child: Icon(
-                              Icons.favorite_border,
-                              color: context.appColors.navy,
-                              size: 30,
-                            ),
-                          ),
-                        )
-                      : Align(
-                          alignment: Alignment.centerLeft,
-                          child: Padding(
-                            padding: EdgeInsets.only(left: 16),
-                            child: Icon(
-                              Icons.favorite,
-                              color: context.appColors.navy,
-                              size: 30,
-                            ),
-                          ),
-                        ),
+                background: const _FavouriteSwipeBackground(adding: true),
+                secondaryBackground: const _FavouriteSwipeBackground(
+                  adding: false,
                 ),
-                key: UniqueKey(),
-                child: GestureDetector(
-                  behavior: HitTestBehavior.opaque,
-                  onTap: () async {
-                    ref
-                        .read(buttonPushNotifierProvider.notifier)
-                        .buttonDown(widget.fileData.id);
-                    Future.delayed(
-                      Duration(milliseconds: 150),
-                      () => ref
-                          .read(buttonPushNotifierProvider.notifier)
-                          .buttonUp(widget.fileData.id),
-                    );
-                    if (_controller.isAnimating && !widget.easterEggActivated) {
-                      _controller.reset();
-                      _player.stop();
-                    } else {
-                      await _playAudio();
-                    }
-                  },
-                  child: AnimatedBuilder(
-                    animation: _controller,
-                    builder: (context, child) {
-                      return Container(
-                        height: 60,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          borderRadius: UIConstants.radiusAll16,
-                          boxShadow: [
-                            if (!buttonPushedDown)
-                              BoxShadow(
-                                color: context.appColors.teal,
-                                offset: Offset(2, 1),
-                                blurRadius: 5,
-                              ),
-                          ],
-                          gradient: _controller.isDismissed
-                              ? LinearGradient(
-                                  colors: [
-                                    context.appColors.navy,
-                                    context.appColors.navy
-                                  ],
-                                )
-                              : LinearGradient(
-                                  colors: [
-                                    context.appColors.teal,
-                                    context.appColors.indigo,
-                                    context.appColors.navy
-                                  ],
-                                  stops: [
-                                    0.0,
-                                    _controller.value,
-                                    _controller.value
-                                  ],
+                child: Semantics(
+                  button: true,
+                  selected: liked,
+                  child: GestureDetector(
+                    behavior: HitTestBehavior.opaque,
+                    onTap: _onTap,
+                    child: AnimatedBuilder(
+                      animation: Listenable.merge([
+                        _controller,
+                        _likeController,
+                      ]),
+                      builder: (context, _) {
+                        return AnimatedContainer(
+                          key: ValueKey('sound-surface-${widget.fileData.id}'),
+                          duration: reduceMotion
+                              ? Duration.zero
+                              : const Duration(milliseconds: 180),
+                          decoration: BoxDecoration(
+                            borderRadius: UIConstants.radiusAll16,
+                            border: Border.all(
+                              color: liked
+                                  ? context.appColors.teal.withValues(
+                                      alpha: 0.8,
+                                    )
+                                  : context.appColors.teal.withValues(
+                                      alpha: 0.3,
+                                    ),
+                            ),
+                            boxShadow: [
+                              if (!pushedDown)
+                                BoxShadow(
+                                  color: context.appColors.teal.withValues(
+                                    alpha: liked ? 0.45 : 0.3,
+                                  ),
+                                  offset: const Offset(2, 1),
+                                  blurRadius: liked ? 9 : 5,
                                 ),
-                        ),
-                        child: liked
-                            ? CustomPaint(
-                                painter: HeartPatternPainter(
-                                    widthOfBar: context.width - 32),
-                                child: Center(
-                                  child: H3AutosizeText(
-                                    text: widget.fileData.title,
-                                    color: context.appColors.whiteStrong,
+                            ],
+                            gradient: _controller.isDismissed
+                                ? LinearGradient(
+                                    begin: Alignment.topLeft,
+                                    end: Alignment.bottomRight,
+                                    colors: liked
+                                        ? [
+                                            context.appColors.navy,
+                                            const Color(0xFF114B66),
+                                          ]
+                                        : [
+                                            context.appColors.navy,
+                                            context.appColors.navy,
+                                          ],
+                                  )
+                                : LinearGradient(
+                                    colors: [
+                                      context.appColors.teal,
+                                      context.appColors.indigo,
+                                      context.appColors.navy,
+                                    ],
+                                    stops: [
+                                      0,
+                                      _controller.value,
+                                      _controller.value,
+                                    ],
+                                  ),
+                          ),
+                          child: ClipRRect(
+                            borderRadius: UIConstants.radiusAll16,
+                            child: Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                if (liked)
+                                  const Positioned.fill(
+                                    child: IgnorePointer(
+                                      child: CustomPaint(
+                                        painter: HeartPatternPainter(),
+                                      ),
+                                    ),
+                                  ),
+                                ConstrainedBox(
+                                  constraints: const BoxConstraints(
+                                    minHeight: 64,
+                                  ),
+                                  child: Padding(
+                                    key: ValueKey(
+                                      'sound-label-padding-${widget.fileData.id}',
+                                    ),
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 40,
+                                      vertical: 8,
+                                    ),
+                                    child: Center(
+                                      child: H3Text(
+                                        text: widget.fileData.title,
+                                        textAlign: TextAlign.center,
+                                        color: context.appColors.whiteStrong,
+                                      ),
+                                    ),
                                   ),
                                 ),
-                              )
-                            : Center(
-                                child: H3AutosizeText(
-                                  text: widget.fileData.title,
-                                  color: context.appColors.whiteStrong,
+                                if (_isPlaying)
+                                  Positioned(
+                                    left: 13,
+                                    child: Icon(
+                                      Icons.graphic_eq,
+                                      color: context.appColors.whiteStrong,
+                                      size: 19,
+                                      semanticLabel: 'Lejátszás',
+                                    ),
+                                  ),
+                                Positioned(
+                                  right: 11,
+                                  child: AnimatedSwitcher(
+                                    duration: reduceMotion
+                                        ? Duration.zero
+                                        : const Duration(milliseconds: 180),
+                                    child: liked
+                                        ? Container(
+                                            key: ValueKey(
+                                              'liked-badge-${widget.fileData.id}',
+                                            ),
+                                            padding: const EdgeInsets.all(5),
+                                            decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
+                                              color: context.appColors.teal
+                                                  .withValues(alpha: 0.2),
+                                            ),
+                                            child: Icon(
+                                              Icons.favorite,
+                                              size: 16,
+                                              color:
+                                                  context.appColors.whiteStrong,
+                                            ),
+                                          )
+                                        : const SizedBox.shrink(),
+                                  ),
                                 ),
-                              ),
-                      );
-                    },
+                                if (_likeController.isAnimating &&
+                                    !reduceMotion)
+                                  Positioned.fill(
+                                    child: IgnorePointer(
+                                      child: Center(
+                                        child: Transform.translate(
+                                          offset: Offset(0, _heartRise.value),
+                                          child: Transform.scale(
+                                            scale: _heartScale.value,
+                                            child: Opacity(
+                                              opacity: _heartOpacity.value,
+                                              child: Icon(
+                                                Icons.favorite,
+                                                key: ValueKey(
+                                                  'like-burst-${widget.fileData.id}',
+                                                ),
+                                                color: context
+                                                    .appColors
+                                                    .whiteStrong,
+                                                size: 36,
+                                                shadows: [
+                                                  Shadow(
+                                                    color:
+                                                        context.appColors.teal,
+                                                    blurRadius: 16,
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                              ],
+                            ),
+                          ),
+                        );
+                      },
+                    ),
                   ),
                 ),
               ),
@@ -237,67 +426,103 @@ class _ProgressBarState extends ConsumerState<ProgressBar>
         );
   }
 
-  void _like(FileData fileData) {
+  Future<void> _like(FileData fileData) async {
     final isar = ref.read(isarProvider).requireValue;
-    isar.writeTxn(() {
-      return isar.cachedLikes.put(fileData.toLike());
-    });
+    await isar.writeTxn(() => isar.cachedLikes.put(fileData.toLike()));
   }
 
-  void _removeLike(int id) {
+  Future<void> _removeLike(int id) async {
     final isar = ref.read(isarProvider).requireValue;
-    isar.writeTxn(() {
-      return isar.cachedLikes.delete(id);
-    });
+    await isar.writeTxn(() => isar.cachedLikes.delete(id));
+  }
+}
+
+class _FavouriteSwipeBackground extends StatelessWidget {
+  const _FavouriteSwipeBackground({required this.adding});
+
+  final bool adding;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: adding ? Alignment.centerLeft : Alignment.centerRight,
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      decoration: BoxDecoration(
+        borderRadius: UIConstants.radiusAll16,
+        gradient: LinearGradient(
+          colors: [
+            context.appColors.teal.withValues(alpha: 0.35),
+            context.appColors.blackStrong,
+          ],
+          begin: adding ? Alignment.centerLeft : Alignment.centerRight,
+          end: adding ? Alignment.centerRight : Alignment.centerLeft,
+        ),
+      ),
+      child: Icon(
+        adding ? Icons.favorite : Icons.heart_broken_outlined,
+        color: context.appColors.whiteStrong,
+        size: 26,
+        semanticLabel: adding ? 'Kedvencekhez adás' : 'Kedvenc eltávolítása',
+      ),
+    );
   }
 }
 
 class HeartPatternPainter extends CustomPainter {
-  final double widthOfBar;
-
-  HeartPatternPainter({required this.widthOfBar});
+  const HeartPatternPainter();
 
   @override
   void paint(Canvas canvas, Size size) {
-    final paint = Paint()..color = AppColors.teal.withOpacity(0.2);
-    final heartSize = 10.0;
-
-    // Define heart positions in a more irregular, but fixed pattern
-    final hearts = [
-      Offset(widthOfBar - 15, 20),
-      Offset(widthOfBar - 40, 40),
-      Offset(widthOfBar - 65, 15),
-      Offset(widthOfBar - 90, 35),
-      Offset(widthOfBar - 115, 25),
-      Offset(widthOfBar - 140, 45),
-      Offset(widthOfBar - 165, 20),
-      Offset(widthOfBar - 190, 45),
-      Offset(widthOfBar - 215, 15),
-      Offset(widthOfBar - 240, 35),
-      Offset(widthOfBar - 265, 25),
-      Offset(widthOfBar - 290, 40),
-      Offset(widthOfBar - 315, 20),
-      Offset(widthOfBar - 340, 40),
-      Offset(widthOfBar - 365, 25),
-    ];
-
-    for (final offset in hearts) {
-      _drawHeart(canvas, paint, offset.dx, offset.dy, heartSize);
+    canvas.save();
+    canvas.clipRect(Offset.zero & size);
+    final outline = Paint()
+      ..color = AppColors.teal.withValues(alpha: 0.12)
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.2;
+    _drawHeart(
+      canvas,
+      outline,
+      Offset(size.width * 0.82, size.height * 0.25),
+      26,
+    );
+    _drawHeart(
+      canvas,
+      outline,
+      Offset(size.width * 0.12, size.height * 0.8),
+      19,
+    );
+    for (var row = 0; row < (size.height / 32).ceil(); row++) {
+      for (var column = 0; column < (size.width / 44).ceil(); column++) {
+        final x = 12.0 + column * 44 + (row.isOdd ? 20 : 0);
+        final y = 8.0 + row * 32;
+        final atEdge = x < size.width * 0.2 || x > size.width * 0.8;
+        final fill = Paint()
+          ..color = AppColors.teal.withValues(alpha: atEdge ? 0.16 : 0.06);
+        _drawHeart(canvas, fill, Offset(x, y), row.isOdd ? 4 : 5);
+      }
     }
+    canvas.restore();
   }
 
-  void _drawHeart(Canvas canvas, Paint paint, double x, double y, double size) {
-    final path = Path();
-    path.moveTo(x, y);
-    path.cubicTo(x, y - size / 2, x - size, y - size / 2, x - size, y);
-    path.cubicTo(x - size, y + size / 2, x, y + size * 3 / 4, x, y + size);
-    path.cubicTo(x, y + size * 3 / 4, x + size, y + size / 2, x + size, y);
-    path.cubicTo(x + size, y - size / 2, x, y - size / 2, x, y);
+  void _drawHeart(Canvas canvas, Paint paint, Offset origin, double radius) {
+    final path = Path()
+      ..moveTo(0, radius * 0.3)
+      ..cubicTo(
+        -radius,
+        -radius * 0.45,
+        -radius,
+        radius * 0.65,
+        0,
+        radius * 1.25,
+      )
+      ..cubicTo(radius, radius * 0.65, radius, -radius * 0.45, 0, radius * 0.3)
+      ..close();
+    canvas.save();
+    canvas.translate(origin.dx, origin.dy);
     canvas.drawPath(path, paint);
+    canvas.restore();
   }
 
   @override
-  bool shouldRepaint(CustomPainter oldDelegate) {
-    return false;
-  }
+  bool shouldRepaint(covariant HeartPatternPainter oldDelegate) => false;
 }

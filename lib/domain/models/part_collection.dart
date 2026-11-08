@@ -2,7 +2,8 @@ enum PartCollection {
   herri('Herri'),
   gyuru('Gyűrű'),
   srekk('Srekk'),
-  karib('Karib');
+  karib('Karib'),
+  pom('2Pom');
 
   const PartCollection(this.title);
 

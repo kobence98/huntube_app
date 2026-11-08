@@ -21,14 +21,20 @@ void main() {
       final parts = await container.read(readFilesProvider.future);
       expect(parts, isNotEmpty);
       final sounds = parts.expand((part) => part.files).toList();
-      expect(sounds.length, 213);
+      expect(sounds.length, 249);
+      final pom = parts.singleWhere(
+        (part) => part.collection == PartCollection.pom,
+      );
+      expect(pom.title, 'Torzonborz faszverő');
+      expect(pom.files.length, 36);
+      expect(pom.files.first.id, 213);
       final legacyAssets = File(
         'test/fixtures/legacy_sound_assets.txt',
       ).readAsLinesSync();
-      expect(sounds.take(177).map((sound) => sound.assetName), legacyAssets);
+      expect(sounds.take(213).map((sound) => sound.assetName), legacyAssets);
       expect(
-        sounds.take(177).map((sound) => sound.id),
-        List.generate(177, (i) => i),
+        sounds.take(213).map((sound) => sound.id),
+        List.generate(213, (i) => i),
       );
       final gyuru = parts.singleWhere(
         (part) => part.collection == PartCollection.gyuru,
@@ -57,7 +63,7 @@ void main() {
       expect(karibVader.files.first.id, 148);
       expect(
         karibVader.files.map((sound) => sound.title),
-        containsAll(['Hajók, emberek és emberhajók', 'Több gőzt!']),
+        containsAll(['Emberhajók', 'Több gőzt!']),
       );
       expect(sounds.map((sound) => sound.id).toSet().length, sounds.length);
       for (final sound in sounds) {

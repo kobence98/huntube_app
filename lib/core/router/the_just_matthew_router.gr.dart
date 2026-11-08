@@ -8,24 +8,26 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i4;
-import 'package:flutter/material.dart' as _i5;
-import 'package:huntube_app/domain/models/part_collection.dart' as _i6;
-import 'package:huntube_app/domain/models/part_files.dart' as _i7;
+import 'package:auto_route/auto_route.dart' as _i5;
+import 'package:flutter/material.dart' as _i6;
+import 'package:huntube_app/domain/models/part_collection.dart' as _i7;
+import 'package:huntube_app/domain/models/part_files.dart' as _i8;
 import 'package:huntube_app/presentation/features/collection_parts/collection_parts_screen.dart'
     as _i1;
-import 'package:huntube_app/presentation/features/home/home_screen.dart' as _i2;
+import 'package:huntube_app/presentation/features/favourites/favourites_screen.dart'
+    as _i2;
+import 'package:huntube_app/presentation/features/home/home_screen.dart' as _i3;
 import 'package:huntube_app/presentation/features/one_part_list/one_part_list_screen.dart'
-    as _i3;
+    as _i4;
 
-abstract class $TheJustMatthewRouter extends _i4.RootStackRouter {
+abstract class $TheJustMatthewRouter extends _i5.RootStackRouter {
   $TheJustMatthewRouter({super.navigatorKey});
 
   @override
-  final Map<String, _i4.PageFactory> pagesMap = {
+  final Map<String, _i5.PageFactory> pagesMap = {
     CollectionPartsRoute.name: (routeData) {
       final args = routeData.argsAs<CollectionPartsRouteArgs>();
-      return _i4.AutoRoutePage<dynamic>(
+      return _i5.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: _i1.CollectionPartsScreen(
           key: args.key,
@@ -35,17 +37,28 @@ abstract class $TheJustMatthewRouter extends _i4.RootStackRouter {
         ),
       );
     },
-    HomeRoute.name: (routeData) {
-      return _i4.AutoRoutePage<dynamic>(
+    FavouritesRoute.name: (routeData) {
+      final args = routeData.argsAs<FavouritesRouteArgs>(
+          orElse: () => const FavouritesRouteArgs());
+      return _i5.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i2.HomeScreen(),
+        child: _i2.FavouritesScreen(
+          key: args.key,
+          easterEggActivated: args.easterEggActivated,
+        ),
+      );
+    },
+    HomeRoute.name: (routeData) {
+      return _i5.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i3.HomeScreen(),
       );
     },
     OnePartListRoute.name: (routeData) {
       final args = routeData.argsAs<OnePartListRouteArgs>();
-      return _i4.AutoRoutePage<dynamic>(
+      return _i5.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i3.OnePartListScreen(
+        child: _i4.OnePartListScreen(
           key: args.key,
           partFiles: args.partFiles,
           easterEggActivated: args.easterEggActivated,
@@ -57,13 +70,13 @@ abstract class $TheJustMatthewRouter extends _i4.RootStackRouter {
 
 /// generated route for
 /// [_i1.CollectionPartsScreen]
-class CollectionPartsRoute extends _i4.PageRouteInfo<CollectionPartsRouteArgs> {
+class CollectionPartsRoute extends _i5.PageRouteInfo<CollectionPartsRouteArgs> {
   CollectionPartsRoute({
-    _i5.Key? key,
-    required _i6.PartCollection collection,
-    required List<_i7.PartFiles> parts,
+    _i6.Key? key,
+    required _i7.PartCollection collection,
+    required List<_i8.PartFiles> parts,
     required bool easterEggActivated,
-    List<_i4.PageRouteInfo>? children,
+    List<_i5.PageRouteInfo>? children,
   }) : super(
           CollectionPartsRoute.name,
           args: CollectionPartsRouteArgs(
@@ -77,8 +90,8 @@ class CollectionPartsRoute extends _i4.PageRouteInfo<CollectionPartsRouteArgs> {
 
   static const String name = 'CollectionPartsRoute';
 
-  static const _i4.PageInfo<CollectionPartsRouteArgs> page =
-      _i4.PageInfo<CollectionPartsRouteArgs>(name);
+  static const _i5.PageInfo<CollectionPartsRouteArgs> page =
+      _i5.PageInfo<CollectionPartsRouteArgs>(name);
 }
 
 class CollectionPartsRouteArgs {
@@ -89,11 +102,11 @@ class CollectionPartsRouteArgs {
     required this.easterEggActivated,
   });
 
-  final _i5.Key? key;
+  final _i6.Key? key;
 
-  final _i6.PartCollection collection;
+  final _i7.PartCollection collection;
 
-  final List<_i7.PartFiles> parts;
+  final List<_i8.PartFiles> parts;
 
   final bool easterEggActivated;
 
@@ -104,9 +117,47 @@ class CollectionPartsRouteArgs {
 }
 
 /// generated route for
-/// [_i2.HomeScreen]
-class HomeRoute extends _i4.PageRouteInfo<void> {
-  const HomeRoute({List<_i4.PageRouteInfo>? children})
+/// [_i2.FavouritesScreen]
+class FavouritesRoute extends _i5.PageRouteInfo<FavouritesRouteArgs> {
+  FavouritesRoute({
+    _i6.Key? key,
+    bool easterEggActivated = false,
+    List<_i5.PageRouteInfo>? children,
+  }) : super(
+          FavouritesRoute.name,
+          args: FavouritesRouteArgs(
+            key: key,
+            easterEggActivated: easterEggActivated,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'FavouritesRoute';
+
+  static const _i5.PageInfo<FavouritesRouteArgs> page =
+      _i5.PageInfo<FavouritesRouteArgs>(name);
+}
+
+class FavouritesRouteArgs {
+  const FavouritesRouteArgs({
+    this.key,
+    this.easterEggActivated = false,
+  });
+
+  final _i6.Key? key;
+
+  final bool easterEggActivated;
+
+  @override
+  String toString() {
+    return 'FavouritesRouteArgs{key: $key, easterEggActivated: $easterEggActivated}';
+  }
+}
+
+/// generated route for
+/// [_i3.HomeScreen]
+class HomeRoute extends _i5.PageRouteInfo<void> {
+  const HomeRoute({List<_i5.PageRouteInfo>? children})
       : super(
           HomeRoute.name,
           initialChildren: children,
@@ -114,17 +165,17 @@ class HomeRoute extends _i4.PageRouteInfo<void> {
 
   static const String name = 'HomeRoute';
 
-  static const _i4.PageInfo<void> page = _i4.PageInfo<void>(name);
+  static const _i5.PageInfo<void> page = _i5.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i3.OnePartListScreen]
-class OnePartListRoute extends _i4.PageRouteInfo<OnePartListRouteArgs> {
+/// [_i4.OnePartListScreen]
+class OnePartListRoute extends _i5.PageRouteInfo<OnePartListRouteArgs> {
   OnePartListRoute({
-    _i5.Key? key,
-    required _i7.PartFiles partFiles,
+    _i6.Key? key,
+    required _i8.PartFiles partFiles,
     required bool easterEggActivated,
-    List<_i4.PageRouteInfo>? children,
+    List<_i5.PageRouteInfo>? children,
   }) : super(
           OnePartListRoute.name,
           args: OnePartListRouteArgs(
@@ -137,8 +188,8 @@ class OnePartListRoute extends _i4.PageRouteInfo<OnePartListRouteArgs> {
 
   static const String name = 'OnePartListRoute';
 
-  static const _i4.PageInfo<OnePartListRouteArgs> page =
-      _i4.PageInfo<OnePartListRouteArgs>(name);
+  static const _i5.PageInfo<OnePartListRouteArgs> page =
+      _i5.PageInfo<OnePartListRouteArgs>(name);
 }
 
 class OnePartListRouteArgs {
@@ -148,9 +199,9 @@ class OnePartListRouteArgs {
     required this.easterEggActivated,
   });
 
-  final _i5.Key? key;
+  final _i6.Key? key;
 
-  final _i7.PartFiles partFiles;
+  final _i8.PartFiles partFiles;
 
   final bool easterEggActivated;
 
